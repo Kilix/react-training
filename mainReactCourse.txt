@@ -1,0 +1,29 @@
+A component declares the DOM a component should render. Declare is the word,
+you don't work on the DOM in an imperative way: you say what you want, React makes it work for you.
+
+A component can render other components or directly HTML elements (see react-native that render native code).
+A component is a function, so an HTML element needs to be one too. They work the same way, they can be nested
+and configured (a component takes props, as an HTML element does <input value="awesome" />).
+
+Calling functions with props, children and stuff works well, but not that readable (purely subjective).
+There's a lot of way to make it, React.createElement, hyperscript, or simply, JSX.
+
+
+FAKE SEPARATION OF CONCERNS
+Template in the logic > logic in the Template
+    You get a real language (JavaScript for the better and the worse), linter, static types, reusable logic, etc.
+    Separating technologies is not separating concerns.
+    // https://www.youtube.com/watch?v=x7cQ3mrcKaY
+
+COMPOSITION
+// https://www.youtube.com/watch?v=wfMtDGfHWpA
+No need for inheritance => the Gorilla and the banana problem
+Composition is what something does, more than what it is.
+Compose several functions together to create more powerfull/specialised ones (remember, a component is a function)
+A button => a validate button and a cancel button => a form footer
+
+LET'S DIG IN
+How to write JSX
+
+TODO
+    styling
