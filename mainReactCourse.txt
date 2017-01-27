@@ -12,18 +12,37 @@ There's a lot of way to make it, React.createElement, hyperscript, or simply, JS
 FAKE SEPARATION OF CONCERNS
 Template in the logic > logic in the Template
     You get a real language (JavaScript for the better and the worse), linter, static types, reusable logic, etc.
-    Separating technologies is not separating concerns.
+    Angular templates (and others) are just weird DSLs to do stuff that you can do in JS
+Separating technologies is not separating concerns.
     // https://www.youtube.com/watch?v=x7cQ3mrcKaY
+    You want to decoupled your views from your data management, your UI from your domain, HTML/JS
+    You'll actually see that often with this separation you'll have to duplicate value/logic
+        e.g. values defined in CSS and JS (colours, see vamos themes), or both your template and logic having an impact on your template
 
 COMPOSITION
 // https://www.youtube.com/watch?v=wfMtDGfHWpA
-No need for inheritance => the Gorilla and the banana problem
+No need for inheritance => the gorilla and the banana problem
 Composition is what something does, more than what it is.
 Compose several functions together to create more powerfull/specialised ones (remember, a component is a function)
-A button => a validate button and a cancel button => a form footer
+Example
 
 LET'S DIG IN
 How to write JSX
+It's just a JS function call. Once you realise that, how to do stuff, what you can do gets logical
+    evaluating a value => {}
+    conditional => ternary (or bool && val)
+    loop => Iterable.map
+    partials => function calls/other component
+    html props are a bit different => some exceptions (className) and camelCase
+    bool default to true
+    gotcha: bind this when passing function to other component (context changes, for instance events) `examples/bind`
+Example
+
+Component API
+defaultProps
+propTypes
+lifecycle
+children as a prop
 
 TODO
     styling

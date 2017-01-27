@@ -1,11 +1,12 @@
 {
-  "name": "training",
+  "name": "react-training",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
     "react-scripts": "0.8.5"
   },
   "dependencies": {
+    "purecss": "^0.6.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },

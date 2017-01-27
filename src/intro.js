@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import './index.css';
 import './intro.css';
 
 const App = () => {
@@ -22,7 +21,7 @@ const App = () => {
 
 ReactDOM.render(
   <App />,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // pass actors as props to <App />
