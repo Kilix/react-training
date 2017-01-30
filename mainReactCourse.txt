@@ -9,6 +9,7 @@ Calling functions with props, children and stuff works well, but not that readab
 There's a lot of way to make it, React.createElement, hyperscript, or simply, JSX.
 
 
+// TODO investigate if not better to start with this section (before intro)
 FAKE SEPARATION OF CONCERNS
 Template in the logic > logic in the Template
     You get a real language (JavaScript for the better and the worse), linter, static types, reusable logic, etc.
@@ -42,8 +43,9 @@ Example
 Component API
 defaultProps    can be found on functional components
 propTypes    can be found on functional components
-lifecycle
+lifecycle   => parent's state is kept => lift the state up
 children as a prop    can be found on functional components and be passed as a "normal" prop
 
 TODO
-    styling
+    inline style, classnames
+    forms? controlled/uncontrolled

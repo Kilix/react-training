@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import './children.css';
 
+// TODO material paper card
 const BorderWrapper = ({children}) => (
     <div className="border">
         {children}

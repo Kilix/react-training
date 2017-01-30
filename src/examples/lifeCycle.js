@@ -24,6 +24,7 @@ class ComponentWithLifecycle extends Component {
         console.log(`previous: ${this.state.renderCount}, next: ${nextState.renderCount}`);
     }
     componentWillUnmount() {
+        console.log('componentWillUnmount')
         clearInterval(this.timer);
     }
     render() {
@@ -51,6 +52,9 @@ class Parent extends Component {
     }
 }
 
+// const App = () => (
+//     <Parent />
+// );
 const App = () => (
     <ComponentWithLifecycle parentCount={0} />
 );
