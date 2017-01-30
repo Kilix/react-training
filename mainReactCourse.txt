@@ -35,14 +35,15 @@ It's just a JS function call. Once you realise that, how to do stuff, what you c
     partials => function calls/other component
     html props are a bit different => some exceptions (className) and camelCase
     bool default to true
+Example
     gotcha: bind this when passing function to other component (context changes, for instance events) `examples/bind`
 Example
 
 Component API
-defaultProps
-propTypes
+defaultProps    can be found on functional components
+propTypes    can be found on functional components
 lifecycle
-children as a prop
+children as a prop    can be found on functional components and be passed as a "normal" prop
 
 TODO
     styling

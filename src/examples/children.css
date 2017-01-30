@@ -1,0 +1,10 @@
+.border {
+    border: solid #ff6f00 1px;
+    margin: 2px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
