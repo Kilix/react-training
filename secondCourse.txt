@@ -3,9 +3,9 @@ INTERNALS
 
 GOING FURTHER
     HOC
+    callback as a render method
     webpack
     server-side rendering
-    callback as a render method
     events
     refs
     context => what's the idea, no need to get into the details

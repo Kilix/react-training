@@ -41,11 +41,13 @@ Example
 Example
 
 Component API
+this.setState   => how it works. It's about render, not used in render, does not belong in the state
 defaultProps    can be found on functional components
 propTypes    can be found on functional components
 lifecycle   => parent's state is kept => lift the state up
 children as a prop    can be found on functional components and be passed as a "normal" prop
 
 TODO
+    simple setState example in first course examples
     inline style, classnames
     forms? controlled/uncontrolled

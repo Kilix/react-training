@@ -1,3 +1,8 @@
-.inline-list > span:not(:last-child) {
+.inline-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inline-list > *:not(:last-child) {
     margin-right: 2px;
 }

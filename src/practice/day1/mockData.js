@@ -29,4 +29,11 @@ export default [
         twitterHandle: 'toddmotto',
         keywords: ['angular', 'typescript']
     },
+    {
+        id: 5,
+        firstname: 'Amélie',
+        lastname: "Lefèvre",
+        twitterHandle: null,
+        keywords: ['react', 'fp'],
+    }
 ];
