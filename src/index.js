@@ -11,4 +11,6 @@ import 'purecss/build/pure.css';
 // Components
 // import './examples/propTypesDefaultProps';
 // import './examples/lifeCycle';
-import './examples/children';
+// import './examples/children';
+
+import './practice/day1/app';

@@ -1,0 +1,3 @@
+.inline-list > span:not(:last-child) {
+    margin-right: 2px;
+}

@@ -1,0 +1,13 @@
+.contact {
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.contact__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
