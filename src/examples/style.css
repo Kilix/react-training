@@ -1,0 +1,7 @@
+.element-with-classes {
+    text-decoration: underline;
+    opacity: 0.6;
+}
+.element-with-classes--selected {
+    opacity: 1;
+}

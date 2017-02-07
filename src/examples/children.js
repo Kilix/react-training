@@ -3,23 +3,25 @@ import ReactDOM from 'react-dom';
 
 import './children.css';
 
-// TODO material paper card
-const BorderWrapper = ({children}) => (
-    <div className="border">
+const Paper = ({children}) => (
+    <div className="paper">
         {children}
     </div>
 );
 
 
 const App = () => (
-    <form className="form pure-form">
-        <BorderWrapper>
-            <input />
-        </BorderWrapper>
-        <BorderWrapper>
-            <button type="button">It's a button</button>
-        </BorderWrapper>
-    </form>
+    <div className="children">
+        <Paper>
+            It's a simple material paper
+        </Paper>
+        <Paper>
+            It's a form
+            <form className="pure-form">
+                <button type="button">with a button</button>
+            </form>
+        </Paper>
+    </div>
 );
 
 ReactDOM.render(
