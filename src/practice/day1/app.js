@@ -36,13 +36,9 @@ class App extends Component {
             contacts,
         } = this.props;
 
-        // TODO add lifecycle example
-
         const filteredContacts = contacts.filter(
             contact => hasContactKeywords(contact, this.state.selectedKeywords),
         );
-
-        // test helpers
 
         return (
             <div>
