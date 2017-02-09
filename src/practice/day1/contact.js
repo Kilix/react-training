@@ -6,6 +6,7 @@ import getContactDisplayName from './helpers/getContactDisplayName';
 import TwitterHandle from './twitterHandle';
 import Keyword from './keyword';
 import InlineList from './inlineList';
+import {fetchTwitterBio} from './mockData';
 
 const contactPropTypes = {
     contact: PropTypes.shape({
@@ -19,13 +20,22 @@ const contactPropTypes = {
 
 class Contact extends Component {
 
-    shouldComponentUpdate(nextProps) {
-        return nextProps.contact !== this.props.contact
+    state = {
+        twitterBio: null,
+    }
+
+    componentDidMount() {
+        const {contact} = this.props;
+
+        if (contact.twitterHandle)
+            fetchTwitterBio(contact.id).then(({bio}) => {
+                this.setState({twitterBio: bio});
+            })
     }
 
     render() {
         const {contact} = this.props
-        console.log(contact.lastname)
+
         return (
             <div className="contact">
                 <div className="contact__header">
@@ -35,6 +45,11 @@ class Contact extends Component {
                 <InlineList elements={contact.keywords}>
                     {(element, index) => <Keyword keyword={element} key={index} />}
                 </InlineList>
+                {this.state.twitterBio && (
+                    <div className="contact__bio">
+                        {this.state.twitterBio}
+                    </div>
+                )}
             </div>
         );
     }

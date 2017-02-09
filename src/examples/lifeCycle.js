@@ -10,6 +10,7 @@ class ComponentWithLifecycle extends Component {
         this.setState({renderCount: this.state.renderCount + 1});
     }
     componentDidMount() {
+        // This is where you should do side-effects
         console.log('componentDidMount')
         this.timer = setInterval(() => {
             this.setState(state => ({renderCount: state.renderCount + 1}));
