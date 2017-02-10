@@ -30,7 +30,7 @@ class Contact extends Component {
         if (contact.twitterHandle)
             fetchTwitterBio(contact.id).then(({bio}) => {
                 this.setState({twitterBio: bio});
-            })
+            });
     }
 
     render() {

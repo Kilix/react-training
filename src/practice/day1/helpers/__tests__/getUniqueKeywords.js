@@ -11,5 +11,5 @@ describe('getUniqueKeywords', () => {
         // Ideally, you would test the length and the fact that these keywords are there
         // This test makes assumptions about the order of the array, which is not correct
         expect(filteredKeywords).toEqual(['fp', 'react', 'cyclejs']);
-    })
+    });
 });

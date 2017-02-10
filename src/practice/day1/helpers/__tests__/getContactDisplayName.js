@@ -10,5 +10,5 @@ describe('getContactDisplayName', () => {
         const contactWithMiddleName = {firstname: 'Philip', middleName: 'K', lastname: 'Dick'};
         const displayName = getContactDisplayName(contactWithMiddleName);
         expect(displayName).toBe('Philip K. DICK');
-    })
+    });
 });

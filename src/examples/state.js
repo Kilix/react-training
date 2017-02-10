@@ -17,7 +17,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>
+            <button onClick={() => this.handleClick()}>
                 {this.state.clicked ? 'Clicked!' : 'Not clicked!'}
             </button>
         );

@@ -2,13 +2,15 @@ INTERNALS
     reconciliation
 
 GOING FURTHER
-    HOC
-    callback as a render method
+    HOC => example
+    callback as a render method => example
+    refs    => example
+
+    events
+    context => what's the idea, no need to get into the details
+
     webpack
     server-side rendering
-    events
-    refs
-    context => what's the idea, no need to get into the details
 
 debrief, questions
 
