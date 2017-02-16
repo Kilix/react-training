@@ -15,3 +15,10 @@ import './intro';
 // import './examples/children';
 
 // import './practice/day1/app';
+
+// import './examples/secondCourse/reconciliation';
+// import './examples/secondCourse/hoc';
+// import './examples/secondCourse/context';
+// import './examples/secondCourse/functionAsChild';
+// import './examples/secondCourse/refs';
+// import './examples/secondCourse/events';

@@ -1,13 +1,97 @@
 INTERNALS
-    reconciliation
+
+RECONCILIATION
+https://facebook.github.io/react/docs/reconciliation.html
+You can think of the render() function as creating a tree of React elements.
+On the next state or props update, that render() function will return a different tree of React elements.
+DOM changes are slow, we need to avoid unecessary updates so React needs to figure out how to efficiently update the UI to match the most recent tree.
+Its algorithm is based on two assumptions:
+    - Whenever the root elements have different types, React will tear down the old tree and build the new tree
+    from scratch. Going from <a> to <img>, or from <Article> to <Comment>, or from <Button> to <div>
+    Any of those will lead to a full rebuild.
+    - When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same
+    underlying DOM node, and only updates the changed attributes.
+
 
 GOING FURTHER
-    HOC => example
-    callback as a render method => example
-    refs    => example
 
-    events
-    context => what's the idea, no need to get into the details
+HIGHER-ORDER COMPONENTS
+https://facebook.github.io/react/docs/higher-order-components.html
+It allows to reuse component logic simply, in several components.
+An HOC is a function that takes a component and returns a new component with additional props.
+HOC is a compensation for the lack of inheritance in javascript.
+
+An HOC doesn't modify the input component, nor does it use inheritance to copy its behavior.
+Rather, an HOC composes the original component by wrapping it in a container component.
+An HOC is a pure function with zero side-effects.
+
+
+CONTEXT
+https://facebook.github.io/react/docs/context.html
+With React, it's easy to track the flow of data through your React components.
+When you look at a component, you can see which props are being passed, which makes your apps easy to reason about.
+In some cases, you want to pass data through the component tree without having to pass the props down manually at every level.
+You can do this directly in React with the powerful "context" API.
+The vast majority of applications do not need to use context.
+If you want your application to be stable, don't use context.
+It is an experimental API and it is likely to break in future releases of React.
+So if you want to use context, use it in one place (as in a HOC) to limit changes when API will change.
+Avoid to use context : it is far more likely that Redux is the right solution to your problem than that context is the right solution.
+Context must be used in a small area, for particular needs not for the global application.
+Do not dynamically update the context: context propagation might accidentally be blocked by a component if
+the props or state of this component are not modified => No re-rendering of a part of the component tree even if
+the context has changed.
+
+// Live example refacto with hoc
+
+
+FUNCTION AS CHILD COMPONENT
+https://medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9#.mayuaur98
+You can pass to components a function as children. With it, we decouple the parent and child component
+(only the composer knows how to apply parameters passed to the child component, the direct parent doesn't know)
+With function as child component, there is no props name collision as there may be with decorators
+(HOC pass named props, that could overwrite existing props).
+
+
+REFS
+https://facebook.github.io/react/docs/refs-and-the-dom.html
+In the typical React dataflow, props are the only way that parent components interact with their children.
+To modify a child, you re-render it with new props.
+However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow.
+The few cases for using refs are:
+    - Managing focus, text selection, or media playback.
+    - Triggering imperative animations.
+    - Integrating with third-party DOM libraries.
+Avoid using refs for anything that can be done declaratively.
+
+React supports a special attribute that you can attach to any component: ref.
+The ref attribute takes a callback function, and the callback will be executed immediately after
+the component is mounted or unmounted.
+
+When the ref attribute is used on an HTML element, the ref callback receives the underlying DOM element
+as its argument when the component mounts, null when its unmounts.
+When the ref attribute is used on a custom component declared as a class, the ref callback receives
+the mounted instance of the component as its argument on mounting, null on unmounting.
+Cannot be used on functional components (which have no instance).
+
+
+EVENTS
+https://facebook.github.io/react/docs/events.html
+In REACT, event handlers will be passed instances of SyntheticEvent, a cross-browser wrapper around
+the browser's native event.
+It has the same interface as the browser's native event, including stopPropagation() and preventDefault(),
+except the events work identically across all browsers.
+If you need the underlying browser event for some reason, you can use the nativeEvent attribute to get it.
+The SyntheticEvent is pooled. This means that the SyntheticEvent object will be reused and all properties
+will be nullified after the event callback has been invoked. This is for performance reasons.
+As such, you cannot access the event in an asynchronous way.
+If you want to access the event in an asynchronous way, you must copy desired attributes into a variable.
+
+
+// TODO Think about examples to code in live
+
+
+
 
     webpack
     server-side rendering
