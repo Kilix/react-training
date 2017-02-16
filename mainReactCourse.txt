@@ -48,4 +48,4 @@ lifecycle   => parent's state is kept => lift the state up
 children as a prop    can be found on functional components and be passed as a "normal" prop
 
 TODO
-    forms? controlled/uncontrolled
+    controlled/uncontrolled form?

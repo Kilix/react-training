@@ -1,0 +1,84 @@
+You observed that React works with a top down data flow, where the lower components take data from
+the upper ones through theirs props, and request changes through callbacks (see the filterItem.js).
+
+You're probably used to MV* patterns, however, Facebook encourages a one-direction data flow where
+the view cannot directly update the model, they can only call functions that will trigger a change
+in the model. This fit React idea, where you pass data and callbacks to lower components.
+
+// Hmmm
+The idea of Redux is to have a central State, describing the state of your application, that you can
+only update through callbacks, and that triggers an event when it is updated (to update your views).
+
+TODO small presentation of the history of Redux (authors, release, who uses it)
+
+Since you don't want to let the view update the store by themselves, you need to be able to request
+changes, and handle them.
+Since the state is read-only, you need a way to describe a change request, an expression of intent.
+In Redux, it's an action, i.e. a description of the requested change, with an object. In yesterday
+session, we would have used
+    {type: 'ADD_FILTER', keyword: 'react'}
+    {type: 'REMOVE_FILTER', keyword: 'fp'}
+    {type: 'RECEIVE_TWITTER_BIO': contactId: 1, value: 'blablabla'}
+    etc.
+
+You can see that these actions don't describe in any way how the state should be changed. It's just
+a description.
+
+Now, we need to be able to process these actions, in order to update the state. In order to be able
+to do easy comparison between versions of the state (Did this section of the state got updated?),
+Redux doesn't modify the state, it always create a new version of the state, no mutation.
+
+Remember that we said that in React, F(D) = V, where F is a pure function? Redux uses the same idea
+for any state update F(S, A) = S'. That's how redux updates the store, it uses a plain pure function
+that takes the state, an action, and return a new version of the state. Since it's pure, this means
+that this function, called the reducer (like Array.prototype.reduce), is totally predictable:
+same S and same A means same S'.
+
+Redux introduces two main concepts for its data flow:
+- actions: plain JS objects to describe the requested changes
+- a reducer, that given an action and the current state, will know how to produce an updated version
+    of it
+
+Write a reducer from scratch, using TDD.
+
+
+This is nice, but just "concepts", no need for a lib for that, however, we need a way to make this
+usable with an app, which means we need something to contain the current state, and interact with it
+
+TODO (remove dispatch and subscribe words)
+What we want is:
+- A view dispatches an action to the state
+- The store receives it, and do a action + state => updatedState
+- The store notifies all the elements that subscribed to its changes, letting them know that they
+    can update themselves
+
+Say hello to the store.
+Example: implement the store
+In example.js, we'll see how redux works, and the three methods of the store.
+
+Show code of its implementation
+
+If you remember what we showed yesterday during the introduction to React, we quickly reached the
+same limitations, rerendering the whole app when wanting to update it, then we switched to setState
+
+You can observe that so far, we didn't see any coupling between React and Redux, that's because
+there are none. Redux is simply a library to manage a state. It also works with Angular for instance
+
+Let's see how we could do something like that with Redux?
+    TODO example with setState and/or forceUpdate
+    See how Dan does in his course
+
+Here we coupled the whole <Counter /> component to the store, this is both heavy, and not really
+convenient, we're totally couply coupling the component to the redux store, we'd rather keep our
+component simple and focused on its goal => two buttons and a display. It would be better to extract
+this logic outside of the component, and this is a great use case for a HOC
+TODO example of a custom implementation of connect
+
+Provider
+
+Since this is such a classic use-case, they released official bindings: react-redux.
+
+TODO
+Using connects all the way down
+Middlewares
+Best-practices redux

@@ -1,7 +1,7 @@
 import './index.css';
 import 'purecss/build/pure.css';
 
-import './intro';
+// import './intro';
 
 // JSX
 // import './examples/jsx';
@@ -22,3 +22,6 @@ import './intro';
 // import './examples/secondCourse/functionAsChild';
 // import './examples/secondCourse/refs';
 // import './examples/secondCourse/events';
+
+// Redux
+// import './reduxCourse/example';
