@@ -23,7 +23,6 @@ Separating technologies is not separating concerns.
 COMPOSITION
 // https://www.youtube.com/watch?v=wfMtDGfHWpA
 No need for inheritance => the gorilla and the banana problem
-Composition is what something does, more than what it is.
 Compose several functions together to create more powerfull/specialised ones (remember, a component is a function)
 Example
 
@@ -47,5 +46,10 @@ propTypes    can be found on functional components
 lifecycle   => parent's state is kept => lift the state up
 children as a prop    can be found on functional components and be passed as a "normal" prop
 
-TODO
+Advices
+Composition
+    In react, if your JSX is severely nested, it probably shows that you're not using enough
+    components. You should compose components together
+
+Escape hatch (if time left)
     controlled/uncontrolled form?

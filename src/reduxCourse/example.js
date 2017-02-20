@@ -17,7 +17,7 @@ const reducer = (state = 0, action) => {
         default:
             return state;
     }
-}
+};
 
 const Counter = (props) => (
     <form className="pure-form example">

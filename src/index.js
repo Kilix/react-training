@@ -1,7 +1,7 @@
 import './index.css';
 import 'purecss/build/pure.css';
 
-// import './intro';
+import './intro';
 
 // JSX
 // import './examples/jsx';

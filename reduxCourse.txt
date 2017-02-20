@@ -7,9 +7,11 @@ in the model. This fit React idea, where you pass data and callbacks to lower co
 
 // Hmmm
 The idea of Redux is to have a central State, describing the state of your application, that you can
-only update through callbacks, and that triggers an event when it is updated (to update your views).
+only update through callbacks, and that triggers an event when updated (to update your views).
 
-TODO small presentation of the history of Redux (authors, release, who uses it)
+HISTORY
+Redux was released at the 2015 react-europe conference by Dan Abramov, its creator (now working at)
+Facebook, and co created by Andrew Clark (@acdlite) now also working at Facebook.
 
 Since you don't want to let the view update the store by themselves, you need to be able to request
 changes, and handle them.
@@ -41,16 +43,15 @@ Redux introduces two main concepts for its data flow:
 
 Write a reducer from scratch, using TDD.
 
+-----
 
 This is nice, but just "concepts", no need for a lib for that, however, we need a way to make this
 usable with an app, which means we need something to contain the current state, and interact with it
 
-TODO (remove dispatch and subscribe words)
 What we want is:
-- A view dispatches an action to the state
-- The store receives it, and do a action + state => updatedState
-- The store notifies all the elements that subscribed to its changes, letting them know that they
-    can update themselves
+- A way to signal that we want to trigger an action
+- A way to tell all the elements that subscribed to its changes, letting them know that they can
+    update themselves
 
 Say hello to the store.
 Example: implement the store
@@ -65,20 +66,50 @@ You can observe that so far, we didn't see any coupling between React and Redux,
 there are none. Redux is simply a library to manage a state. It also works with Angular for instance
 
 Let's see how we could do something like that with Redux?
-    TODO example with setState and/or forceUpdate
-    See how Dan does in his course
+Example with forceUpdate
 
-Here we coupled the whole <Counter /> component to the store, this is both heavy, and not really
+-----
+
+Right now, the store is an implicit dependency of the app. We don't like that, because first of all,
+it make testing hard/impossible, since you might want to mock it. Moreover, it just goes against the
+concept of React, where you pass your data from the top to the bottom. You could pass the store
+through props, but it would be cumbersome, and still not ideal, some intermediate components might
+not need it. What we're looking for is a clean DI solution. React offers this with the Context, that
+Amélie explained yesterday.
+
+Example, build provider from the ground up
+
+-----
+
+We coupled the whole <Counter /> component to the store, this is both heavy, and not really
 convenient, we're totally couply coupling the component to the redux store, we'd rather keep our
 component simple and focused on its goal => two buttons and a display. It would be better to extract
 this logic outside of the component, and this is a great use case for a HOC
-TODO example of a custom implementation of connect
 
-Provider
+Example of a custom implementation of connect
 
 Since this is such a classic use-case, they released official bindings: react-redux.
 
-TODO
-Using connects all the way down
+----
+
+Let's get more practical, and rewrite day1 practice with redux
+
+----
+
+Action creators
+
+----
+
 Middlewares
+https://github.com/evgenyrodionov/redux-logger
+
+https://github.com/gaearon/redux-thunk
+Example with day 1 practice setState
+
+----
+
 Best-practices redux
+- Single source of truth => no duplication, don't store something that can be computed
+- Keep presentational and container components separated
+- Normalize your data
+    - The idea of an entity section (see Twitter, Vamos)
