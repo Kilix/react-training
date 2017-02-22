@@ -1,0 +1,13 @@
+.example {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.example > * {
+    margin-bottom: 10px;
+}
+
+.counter {
+    align-self: center;
+}
