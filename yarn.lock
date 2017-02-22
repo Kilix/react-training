@@ -4241,6 +4241,10 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
+react-pure-render@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-pure-render/-/react-pure-render-1.0.2.tgz#9d8a928c7f2c37513c2d064e57b3e3c356e9fabb"
+
 react-scripts@0.8.5:
   version "0.8.5"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-0.8.5.tgz#5dc154617be7addef5022c261b96b3e3068418cb"

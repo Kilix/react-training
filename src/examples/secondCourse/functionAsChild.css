@@ -1,0 +1,7 @@
+.simple-list > div {
+    padding: 10px;
+}
+
+.simple-list > div:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
