@@ -16,6 +16,7 @@ import './intro';
 
 // import './practice/day1/app';
 
+// Second Course
 // import './examples/secondCourse/reconciliation';
 // import './examples/secondCourse/hoc';
 // import './examples/secondCourse/context';
@@ -25,3 +26,6 @@ import './intro';
 
 // Redux
 // import './reduxCourse/example';
+
+// Main practice
+// import './practice/main/app';

@@ -1,5 +1,5 @@
 
-http://www.last.fm/api/
+http://www.last.fm/fr/api
 
 List of artists, navigation (similar artists etc)
 
@@ -9,19 +9,31 @@ Fetch, list => store, render de la liste (cad les 50 premiers) avec image, etc.
     - données dans le state en TDD
     - un connect global pour la liste
 
+Récupérer la liste du top artistes et l'afficher :
+    - image (la première du tableau)
+    - nom
+    - play count
+    - link last.fm
+
 2
-Trier par playcount
+Ajouter un bouton qui permet de trier la liste par play count.
+Le bouton doit être recliquable pour enlever le tri sur la liste.
 
 3
-Au click d'un artiste, au dessus de la liste, visualisation d'un artiste et de ses infos
+Au clic sur le nom d'un artiste, get & visualisation de ses infos au dessus de la liste.
     - dans un premier temps, pas besoin de normaliser
     - dans un second temps => normalisez
 
-4
-La carte change de thème en fonction des tags de l'artiste : si pop, couleur XX, si rock, couleur YY
-(context)
+Dans la carte :
+    - Image 2 de l'artiste
+    - Summary de sa bio
+    - Mots-clés
+    - Artistes similaires
 
-A la fin, un connect par ligne de la liste, un connect en haut
+4
+La carte d'un artiste change de thème en fonction des tags de l'artiste :
+    - Si il a le tag 'rock' (comme Radiohead, Coldplay ...), le thème devient 'rock' (violet)
+    - Si il a le tag 'rnb' (comme The Weeknd, Rihanna ...), le thème devient 'rnb' (orange)
 
 5
 https://github.com/ReactTraining/react-router
@@ -30,6 +42,3 @@ https://flowtype.org/
 http://slides.com/augustinlf/flow-type#/
 
 http://ramdajs.com/
-
-
-TODO add to yarn normalizr and reselect
