@@ -1,0 +1,45 @@
+.contact {
+    width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.contact__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.contact__bio {
+    margin-top: 5px;
+}
+
+.filters {
+    padding: 10px 0;
+}
+
+.keyword {
+    background-color: #64B5F6;
+    border-radius: 10px;
+    color: white;
+    padding: 1px 5px;
+}
+
+.inline-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.inline-list > *:not(:last-child) {
+    margin-right: 2px;
+}
+
+.list {
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px;
+}
+
+.list > div:not(:last-child) {
+    border-bottom: 1px solid #F1F1F1;
+}
