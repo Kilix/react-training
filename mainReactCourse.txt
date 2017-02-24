@@ -1,15 +1,3 @@
-A component declares the DOM a component should render. Declare is the word,
-you don't work on the DOM in an imperative way: you say what you want, React makes it work for you.
-
-A component can render other components or directly HTML elements (see react-native that render native code).
-A component is a function, so an HTML element needs to be one too. They work the same way, they can be nested
-and configured (a component takes props, as an HTML element does <input value="awesome" />).
-
-Calling functions with props, children and stuff works well, but not that readable (purely subjective).
-There's a lot of way to make it, React.createElement, hyperscript, or simply, JSX.
-
-
-// TODO investigate if not better to start with this section (before intro)
 FAKE SEPARATION OF CONCERNS
 Template in the logic > logic in the Template
     You get a real language (JavaScript for the better and the worse), linter, static types, reusable logic, etc.
@@ -20,11 +8,18 @@ Separating technologies is not separating concerns.
     You'll actually see that often with this separation you'll have to duplicate value/logic
         e.g. values defined in CSS and JS (colours, see vamos themes), or both your template and logic having an impact on your template
 
-COMPOSITION
-// https://www.youtube.com/watch?v=wfMtDGfHWpA
-No need for inheritance => the gorilla and the banana problem
-Compose several functions together to create more powerfull/specialised ones (remember, a component is a function)
-Example
+
+// TODO should be later?
+A component declares the DOM a component should render. Declare is the word,
+you don't work on the DOM in an imperative way: you say what you want, React makes it work for you.
+
+A component can render other components or directly HTML elements (see react-native that render native code).
+A component is a function, so an HTML element needs to be one too. They work the same way, they can be nested
+and configured (a component takes props, as an HTML element does <input value="awesome" />).
+
+// TODO/example? use React.createElement
+Calling functions with props, children and stuff works well, but not that readable (purely subjective).
+There's a lot of way to make it, React.createElement, hyperscript, or simply, JSX.
 
 LET'S DIG IN
 How to write JSX
@@ -39,6 +34,17 @@ Example
     gotcha: bind this when passing function to other component (context changes, for instance events) `examples/bind`
 Example
 
+
+COMPOSITION
+// https://www.youtube.com/watch?v=wfMtDGfHWpA
+No need for inheritance => the gorilla and the banana problem
+Compose several functions together to create more powerfull/specialised ones (remember, a component is a function)
+Example
+Advice about composition
+    In react, if your JSX is severely nested, it probably shows that you're not using enough
+    components. You should compose components together
+
+
 Component API
 this.setState   => how it works. It's about render, not used in render, does not belong in the state
 defaultProps    can be found on functional components
@@ -46,10 +52,6 @@ propTypes    can be found on functional components
 lifecycle   => parent's state is kept => lift the state up
 children as a prop    can be found on functional components and be passed as a "normal" prop
 
-Advices
-Composition
-    In react, if your JSX is severely nested, it probably shows that you're not using enough
-    components. You should compose components together
 
 Escape hatch (if time left)
     controlled/uncontrolled form?

@@ -5,13 +5,12 @@ You're probably used to MV* patterns, however, Facebook encourages a one-directi
 the view cannot directly update the model, they can only call functions that will trigger a change
 in the model. This fit React idea, where you pass data and callbacks to lower components.
 
-// Hmmm
-The idea of Redux is to have a central State, describing the state of your application, that you can
-only update through callbacks, and that triggers an event when updated (to update your views).
-
 HISTORY
 Redux was released at the 2015 react-europe conference by Dan Abramov, its creator (now working at)
 Facebook, and co created by Andrew Clark (@acdlite) now also working at Facebook.
+
+The idea of Redux is to have a central State, describing the state of your application, that you can
+only update through callbacks, and that triggers an event when updated (to update your views).
 
 Since you don't want to let the view update the store by themselves, you need to be able to request
 changes, and handle them.

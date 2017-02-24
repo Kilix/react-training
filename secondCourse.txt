@@ -1,3 +1,6 @@
+NB: A lot of the content of this file is taken from the official react docs, see the links before
+each paragraphs
+
 INTERNALS
 
 RECONCILIATION
@@ -19,7 +22,7 @@ HIGHER-ORDER COMPONENTS
 https://facebook.github.io/react/docs/higher-order-components.html
 It allows to reuse component logic simply, in several components.
 An HOC is a function that takes a component and returns a new component with additional props.
-HOC is a compensation for the lack of inheritance in javascript.
+HOC is a compensation for the fact that we don't use inheritance in React.
 
 An HOC doesn't modify the input component, nor does it use inheritance to copy its behavior.
 Rather, an HOC composes the original component by wrapping it in a container component.

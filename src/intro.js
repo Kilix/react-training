@@ -26,6 +26,5 @@ ReactDOM.render(
 
 // pass actors as props to <App />
 // add button to addHugues, that modifies actors and rerenderPage
-// show chrome inspector to show what is actually added/removed from the dom
 // Use class for App and use setState instead of triggering a full rerender
 // Add a simple component ~ reusable template
