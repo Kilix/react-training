@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
-import {formateNumberToString} from './libs/helpers';
+import {formatNumberToString} from './helpers';
 import {getArtistByName} from './selectors';
 import * as actions from './actions';
 
@@ -33,12 +33,12 @@ class ArtistRow extends Component {
         return (
             <tr className="artist-row">
                 <td className="artist-row__image">
-                    <img src={imgUrl} alt="" />
+                    <img src={imgUrl} alt={artist.name} />
                 </td>
                 <td className="artist-row__name" onClick={this.openArtistCard}>
                     {artist.name}
                 </td>
-                <td>{formateNumberToString(artist.playcount)}</td>
+                <td>{formatNumberToString(artist.playcount)}</td>
                 <td><a href={artist.url} target="_blank">{artist.url}</a></td>
             </tr>
         );

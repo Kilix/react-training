@@ -3,12 +3,14 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import R from 'ramda';
 
+import {getTopArtistsWithInfo} from './selectors';
+import {sortArtistsByPlayCount} from './helpers';
 import Card from './components/card';
 import ArtistRow from './artistRow';
 import * as actions from './actions';
 
 const mapStateToArtistsListProps = state => ({
-    artistsList: state.topArtists,
+    artistsList: getTopArtistsWithInfo(state),
 });
 const mapDispatchToArtistsListProps = (dispatch) => ({
     getTopArtists: bindActionCreators(actions.getTopArtists, dispatch),
@@ -22,25 +24,23 @@ class ArtistsList extends Component {
     };
 
     state = {
-        sortByPlayCount: false,
+        sorted: false,
     };
 
     componentWillMount() {
         this.props.getTopArtists();
     }
 
-    sortFunction = (firstArtist, secondArtist) => secondArtist.playcount - firstArtist.playcount;
-
     sortByPlayCount = () => {
-        this.setState({sortByPlayCount: !this.state.sortByPlayCount});
+        this.setState({sorted: !this.state.sorted});
     }
 
     render() {
         const {artistsList} = this.props;
-        const {sortByPlayCount} = this.state;
-        const sortMsg = sortByPlayCount ? 'Remove sorting' : 'Sort by play count';
-        const artists = sortByPlayCount
-            ? R.sort(this.sortFunction, artistsList)
+        const {sorted} = this.state;
+        const sortMsg = sorted ? 'Remove sorting' : 'Sort by play count';
+        const artists = sorted
+            ? R.sort(sortArtistsByPlayCount, artistsList)
             : artistsList;
 
         const header = (
@@ -63,7 +63,7 @@ class ArtistsList extends Component {
                     </thead>
                     <tbody>
                         {artists.map(
-                            artistName => <ArtistRow key={artistName} artistName={artistName} />
+                            ({name}) => <ArtistRow key={name} artistName={name} />
                         )}
                     </tbody>
                 </table>

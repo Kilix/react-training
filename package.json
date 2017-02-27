@@ -17,8 +17,7 @@
     "redux-logger": "^2.8.1",
     "redux-promise-middleware": "^4.2.0",
     "reselect": "^2.5.4",
-    "superagent": "^3.4.4",
-    "superagent-bluebird-promise": "^4.1.0"
+    "superagent": "^3.4.4"
   },
   "scripts": {
     "start": "react-scripts start",

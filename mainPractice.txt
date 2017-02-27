@@ -4,11 +4,6 @@ http://www.last.fm/fr/api
 List of artists, navigation (similar artists etc)
 
 1
-Fetch, list => store, render de la liste (cad les 50 premiers) avec image, etc.
-    - redux-thunk
-    - données dans le state en TDD
-    - un connect global pour la liste
-
 Récupérer la liste du top artistes et l'afficher :
     - image (la première du tableau)
     - nom

@@ -15,8 +15,12 @@ const getSelectedArtist = (state) => createSelector(
 
 const getArtistByName = (state, artistName) => getArtistGetter(state)(artistName);
 
+const getTopArtistsWithInfo = state =>
+    state.topArtists.map(artistName => getArtistByName(state, artistName));
+
 export {
     getArtistByName,
     getSelectedArtist,
     getSelectedArtistName,
+    getTopArtistsWithInfo,
 };

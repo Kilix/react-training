@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import Card from './components/card';
-import {formateNumberToString} from './libs/helpers';
+import {formatNumberToString, hasTag, getSimilarArtistsNames} from './helpers';
 import {getSelectedArtist, getSelectedArtistName} from './selectors';
 import Tag from './tag';
 import * as actions from './actions';
@@ -24,21 +24,16 @@ class ArtistCard extends Component {
         getArtistInfo: PropTypes.func.isRequired,
     };
 
-    hasTag = musicStyle => {
-        const {artist} = this.props;
-        return artist.tags && artist.tags.tag.filter(tag => tag.name === musicStyle).length > 0;
-    }
-
     getChildContext() {
         const {artist} = this.props;
 
-        if (!artist)
+        if (!artist || !artist.tags)
             return {theme: 'default'};
 
-        if (this.hasTag('rock'))
+        if (hasTag('rock', artist.tags))
             return {theme: 'rock'};
 
-        if (this.hasTag('rnb'))
+        if (hasTag('rnb', artist.tags))
             return {theme: 'rnb'};
 
         return {theme: 'default'};
@@ -68,17 +63,17 @@ class ArtistCard extends Component {
             return null;
 
         const imgUrl = artist.image[2]['#text'];
-        const similarArtists = artist.similar && artist.similar.artist.map(artist => artist.name).join(', ');
+        const similarArtists = artist.similar && getSimilarArtistsNames(artist.similar);
 
         return (
             <Card header={selectedArtistName}>
                 <div className="artist-card">
                     <div className="artist-card__main">
                         <a href={artist.url} target="_blank">
-                            <img src={imgUrl} alt="" />
+                            <img src={imgUrl} alt={artist.name} />
                         </a>
                         <div className="artist-card__details">
-                            <div>Play count: {artist.stats && formateNumberToString(artist.stats.playcount)}</div>
+                            <div>Play count: {artist.stats && formatNumberToString(artist.stats.playcount)}</div>
                             {artist.bio &&
                                 <div dangerouslySetInnerHTML={{__html: artist.bio.summary}} />
                             }

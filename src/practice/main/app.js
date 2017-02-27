@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 
-import {middleware} from './libs/middleware';
+import {middlewares} from './libs/middlewares';
 import reducer, {initialState} from './reducer';
 import ArtistsList from './artistsList';
 import ArtistCard from './artistCard';
@@ -25,7 +25,7 @@ class App extends Component {
 const store = createStore(
     reducer,
     initialState,
-    applyMiddleware(...middleware),
+    applyMiddleware(...middlewares),
 );
 
 ReactDOM.render(
