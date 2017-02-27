@@ -1,0 +1,98 @@
+#root {
+    display: block;
+    padding: 20px;
+    background-color: #F5F5F5;
+}
+
+.app {
+    color: #333;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.239216) 0px 1px 4px;
+    border-radius: 2px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+.card__header {
+    font-size: 18px;
+    padding: 15px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.22);
+    position: relative;
+}
+.card__header > div {
+    display: flex;
+    justify-content: space-between;
+}
+.card--default .card__header, .card--default a {color: #2d9689;}
+.card--rnb .card__header, .card--rnb a {color: #e45a43;}
+.card--rock .card__header, .card--rock a {color: #5920a2;}
+
+table {
+    width: 100%;
+}
+th {
+    padding: 15px;
+    padding-bottom: 0;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+td {
+    padding: 15px;
+}
+
+a {
+    color: #2d9689;
+}
+
+.artist-row {
+    border-bottom: 1px solid #F1F1F1;
+}
+
+.artist-row__image {
+    text-align: center;
+}
+
+.artist-row__name {
+    cursor: pointer;
+}
+.artist-row__name:hover {
+    color: #2d9689;
+}
+
+button {
+    font-size: 15px;
+    background-color: #2d9689;
+    color: white;
+    border: none;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+                0 3px 1px -2px rgba(0, 0, 0, 0.2),
+                0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    outline: none;
+}
+
+.artist-card {
+    padding: 15px;
+}
+.artist-card__main, .artist-card__tags {
+    display: flex;
+}
+.artist-card__main img, .artist-card__tags div {
+    padding-right: 10px;
+}
+.artist-card__details > div {
+    margin-bottom: 7px;
+}
+
+.tag {
+    color: white;
+    padding: 1px 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    font-weight: lighter;
+    border-radius: 10px;
+}
+.tag--default {background-color: #2d9689;}
+.tag--rnb {background-color: #e45a43;}
+.tag--rock {background-color: #5920a2;}
