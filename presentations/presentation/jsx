@@ -1,0 +1,19 @@
+return (
+  <div className="app">
+    {getTitle()}
+    <div>
+      {shouldShowTitle && <Title />}
+    </div>
+    {type === 'reminder' ? <Reminder /> : <Other />}
+    <ul>
+      {[0, 1, 2, 3].map((count, index) => <li key={count}>{count}</liv>)}
+    </ul>
+    <button onClick={handleButtonClick}>A button</button>
+    <Component
+      active
+      used={false}
+      name="two"
+      id={3}
+    />
+  </div>
+)

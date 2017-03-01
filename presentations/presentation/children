@@ -1,0 +1,11 @@
+const Comp = ({children}) => (
+    <div>
+        {children('with a name')}
+    </div>
+)
+
+const Parent = () => (
+    <Comp>
+        {(name) => <div>{name}</div>}
+    </Comp>
+);

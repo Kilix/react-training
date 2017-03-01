@@ -8,3 +8,5 @@ Inspiration:
   - [@dan_abramov](https://twitter.com/dan_abramov)'s [egghead course on Redux](https://egghead.io/courses/getting-started-with-redux)
 
 No time will be expanded to explain ES2015 syntax, being familiar with its main features is necessary.
+
+For the presentation, you need to run yarn install in the presentation folder `cd presentations && yarn install`
