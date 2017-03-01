@@ -9,17 +9,21 @@ Separating technologies is not separating concerns.
         e.g. values defined in CSS and JS (colours, see vamos themes), or both your template and logic having an impact on your template
 
 
-// TODO should be later?
-A component declares the DOM a component should render. Declare is the word,
+React building block is the Component. It declares the DOM it should render. Declare is the word,
 you don't work on the DOM in an imperative way: you say what you want, React makes it work for you.
+
+
+Example: intro
+
+----End intro----
 
 A component can render other components or directly HTML elements (see react-native that render native code).
 A component is a function, so an HTML element needs to be one too. They work the same way, they can be nested
 and configured (a component takes props, as an HTML element does <input value="awesome" />).
 
-// TODO/example? use React.createElement
 Calling functions with props, children and stuff works well, but not that readable (purely subjective).
 There's a lot of way to make it, React.createElement, hyperscript, or simply, JSX.
+See https://facebook.github.io/react/docs/react-without-jsx.html
 
 LET'S DIG IN
 How to write JSX
