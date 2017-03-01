@@ -1,3 +1,5 @@
+// Classic context for Fruit color
+// => HOC
 import React, {PropTypes, Component} from 'react';
 import ReactDOM from 'react-dom';
 
@@ -6,12 +8,9 @@ class Fruit extends Component {
         name: PropTypes.string.isRequired,
     };
 
-    static contextTypes = {
-        color: React.PropTypes.string
-    };
-
     render() {
-        return <div style={{color: this.context.color}}>{this.props.name}</div>;
+        const {name} = this.props;
+        return <div>{name}</div>;
     }
 }
 class List extends Component {
@@ -22,14 +21,6 @@ class List extends Component {
     }
 }
 class Parent extends Component {
-    getChildContext() {
-        return {color: 'purple'};
-    }
-
-    static childContextTypes = {
-        color: React.PropTypes.string
-    };
-
     render() {
         return <List />;
     }
