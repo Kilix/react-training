@@ -22,9 +22,9 @@ class Parent extends Component {
         return (
             <SimpleList elements={['apple', 'peach', 'grapes']}>
                 {(fruit, index) => (
-                    <div>
+                    <div key={fruit}>
                         <div>Fruit n°{index + 1}:</div>
-                        <div key={fruit}>{fruit}</div>
+                        <div>{fruit}</div>
                     </div>
                 )}
             </SimpleList>

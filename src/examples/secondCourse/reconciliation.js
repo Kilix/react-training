@@ -21,8 +21,8 @@ class Parent extends Component {
         children: ['orange', 'peach'],
     };
 
-    addRedInFirstPosition = () => this.setState({chidren: this.state.children.unshift('apple')});
-    addGreenInLastPosition = () => this.setState({chidren: this.state.children.push('grapes')});
+    addAppleInFirstPosition = () => this.setState({chidren: this.state.children.unshift('apple')});
+    addGrapesInLastPosition = () => this.setState({chidren: this.state.children.push('grapes')});
 
     render() {
         return (
@@ -30,10 +30,10 @@ class Parent extends Component {
                 {this.state.children.map((name, index) => (
                     <Fruit name={name} />
                 ))}
-                <button type="button" onClick={this.addRedInFirstPosition}>
+                <button type="button" onClick={this.addAppleInFirstPosition}>
                     Add apple in first position
                 </button>
-                <button type="button" onClick={this.addGreenInLastPosition}>
+                <button type="button" onClick={this.addGrapesInLastPosition}>
                     Add grapes in last position
                 </button>
             </div>

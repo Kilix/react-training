@@ -27,9 +27,9 @@ a description.
 
 Now, we need to be able to process these actions, in order to update the state. In order to be able
 to do easy comparison between versions of the state (Did this section of the state got updated?),
-Redux doesn't modify the state, it always create a new version of the state, no mutation.
+Redux doesn't modify the state, it always creates a new version of the state, no mutation.
 
-Remember that we said that in React, F(D) = V, where F is a pure function? Redux uses the same idea
+Remember that we said that in React, F(D) = V, where F is a pure function. Redux uses the same idea
 for any state update F(S, A) = S'. That's how redux updates the store, it uses a plain pure function
 that takes the state, an action, and return a new version of the state. Since it's pure, this means
 that this function, called the reducer (like Array.prototype.reduce), is totally predictable:
@@ -81,7 +81,7 @@ Example, build provider from the ground up
 -----
 
 We coupled the whole <Counter /> component to the store, this is both heavy, and not really
-convenient, we're totally couply coupling the component to the redux store, we'd rather keep our
+convenient, we're totally coupling the component to the redux store, we'd rather keep our
 component simple and focused on its goal => two buttons and a display. It would be better to extract
 this logic outside of the component, and this is a great use case for a HOC
 

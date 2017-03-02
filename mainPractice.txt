@@ -1,20 +1,17 @@
-
 http://www.last.fm/fr/api
 
-List of artists, navigation (similar artists etc)
+ETAPE 1
+Récupérer la liste du top artistes et l'afficher. Pour chaque artiste, afficher :
+    - son image (la première du tableau)
+    - son nom
+    - son play count
+    - son lien last.fm
 
-1
-Récupérer la liste du top artistes et l'afficher :
-    - image (la première du tableau)
-    - nom
-    - play count
-    - link last.fm
-
-2
+ETAPE 2
 Ajouter un bouton qui permet de trier la liste par play count.
 Le bouton doit être recliquable pour enlever le tri sur la liste.
 
-3
+ETAPE 3
 Au clic sur le nom d'un artiste, get & visualisation de ses infos au dessus de la liste.
     - dans un premier temps, pas besoin de normaliser
     - dans un second temps => normalisez
@@ -25,15 +22,19 @@ Dans la carte :
     - Mots-clés
     - Artistes similaires
 
-4
+ETAPE 4
 La carte d'un artiste change de thème en fonction des tags de l'artiste :
     - Si il a le tag 'rock' (comme Radiohead, Coldplay ...), le thème devient 'rock' (violet)
     - Si il a le tag 'rnb' (comme The Weeknd, Rihanna ...), le thème devient 'rnb' (orange)
 
-5
-https://github.com/ReactTraining/react-router
+ETAPES BONUS
+    -   Utiliser du routing : au clic sur le nom d'un artiste dans la liste, sa carte n'apparaît plus
+        simplement au-dessus de la liste, c'est une nouvelle page.
+        https://github.com/ReactTraining/react-router
 
-https://flowtype.org/
-http://slides.com/augustinlf/flow-type#/
+    -   Typer l'application grace à Flow
+        https://flowtype.org/
+        http://slides.com/augustinlf/flow-type#/
 
-http://ramdajs.com/
+    -   Utiliser Ramda pour tout ce qui est gestion d'objets / de tableaux
+        http://ramdajs.com/
