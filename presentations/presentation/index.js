@@ -55,20 +55,31 @@ export default class Presentation extends React.Component {
                 </Slide>
 
                 <Slide transition={["fade"]} bgColor="primary">
+                    <Heading size={6} caps>Who?</Heading>
+                    <Text>Amélie Lefèvre & Augustin Le Fèvre</Text>
+                    <Text
+                        style={{marginTop: '30px'}}
+                        textSize="2rem"
+                    >
+                        Working full-time with react for a bit more than 1.5 years
+                    </Text>
+                </Slide>
+
+                <Slide transition={["fade"]} bgColor="primary">
                     <Heading size={5} textColor="secondary">
                         Program
                     </Heading>
                     <List>
-                        <ListItem textSize={"2rem"}>Introduction to React core concepts ~1 hour</ListItem>
-                        <ListItem textSize={"2rem"}>React API ~2 hours</ListItem>
-                        <ListItem textSize={"2rem"}>Lunch break</ListItem>
-                        <ListItem textSize={"2rem"}>Practice ~3 hours</ListItem>
-                        <ListItem textSize={"2rem"}>Going further with react ~1 hour</ListItem>
-                        <ListItem textSize={"2rem"}>Home sweet home</ListItem>
-                        <ListItem textSize={"2rem"}>Redux ~3 hours</ListItem>
-                        <ListItem textSize={"2rem"}>Lunch break</ListItem>
-                        <ListItem textSize={"2rem"}>Let's build a full-fledged project ~4 hours</ListItem>
-                        <ListItem textSize={"2rem"}>Closing advices, resources, questions, etc. ~1 hour</ListItem>
+                        <ListItem textSize="2rem">Introduction to React core concepts ~1 hour</ListItem>
+                        <ListItem textSize="2rem">React API ~2 hours</ListItem>
+                        <ListItem textSize="2rem">Lunch break</ListItem>
+                        <ListItem textSize="2rem">Practice ~3 hours</ListItem>
+                        <ListItem textSize="2rem">Going further with react ~1 hour</ListItem>
+                        <ListItem textSize="2rem">Home sweet home</ListItem>
+                        <ListItem textSize="2rem">Redux ~3 hours</ListItem>
+                        <ListItem textSize="2rem">Lunch break</ListItem>
+                        <ListItem textSize="2rem">Let's build a full-fledged project ~4 hours</ListItem>
+                        <ListItem textSize="2rem">Closing advices, resources, questions, etc. ~1 hour</ListItem>
                     </List>
                 </Slide>
 
@@ -112,8 +123,8 @@ export default class Presentation extends React.Component {
                 <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
                     <Heading size={6}>Practice</Heading>
                     <List>
-                        <ListSection>Pair Programming: switch every 15 minutes</ListSection>
-                        <ListSection>The solutions are in the repo. Please don't check them.</ListSection>
+                        <ListItem>Pair Programming: switch every 15 minutes</ListItem>
+                        <ListItem>The solutions are in the repo. Please don't check them.</ListItem>
                     </List>
                 </Slide>
 
@@ -224,9 +235,9 @@ export default class Presentation extends React.Component {
                 <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
                     <Heading size={6}>Practice</Heading>
                     <List>
-                        <ListSection>Pair Programming: switch every 15 minutes</ListSection>
-                        <ListSection>The solutions are in the repo. Please don't check them.</ListSection>
-                        <ListSection>Check mainPractice</ListSection>
+                        <ListItem>Pair Programming: switch every 15 minutes</ListItem>
+                        <ListItem>The solutions are in the repo. Please don't check them.</ListItem>
+                        <ListItem>Check mainPractice</ListItem>
                     </List>
                 </Slide>
             </Deck>
