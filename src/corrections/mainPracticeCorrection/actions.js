@@ -1,4 +1,4 @@
-import {getTopArtistsPromise, getArtistInfoPromise} from './libs/actionsHelpers';
+import {getTopArtistsPromise, getArtistInfoPromise} from '../../practice/main/libs/actionsHelpers';
 import {normalizeArtist, normalizeTopArtists} from './schemas';
 
 export const GET_TOP_ARTISTS_PENDING = 'GET_TOP_ARTISTS_PENDING';

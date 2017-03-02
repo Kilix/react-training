@@ -16,3 +16,4 @@ build
 npm-debug.log
 
 local.js
+src/practice/main/mockedData.js

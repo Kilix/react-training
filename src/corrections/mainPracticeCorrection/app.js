@@ -1,4 +1,4 @@
-import './style.css';
+import '../../practice/main/style.css';
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
