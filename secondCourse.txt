@@ -7,13 +7,15 @@ RECONCILIATION
 https://facebook.github.io/react/docs/reconciliation.html
 You can think of the render() function as creating a tree of React elements.
 On the next state or props update, that render() function will return a different tree of React elements.
-DOM changes are slow, we need to avoid unecessary updates so React needs to figure out how to efficiently update the UI to match the most recent tree.
+DOM changes are slow, we need to avoid unecessary updates so React needs to figure out how to efficiently
+update the UI to match the most recent tree.
 Its algorithm is based on two assumptions:
-    - Whenever the root elements have different types, React will tear down the old tree and build the new tree
-    from scratch. Going from <a> to <img>, or from <Article> to <Comment>, or from <Button> to <div>
-    Any of those will lead to a full rebuild.
-    - When comparing two React DOM elements of the same type, React looks at the attributes of both, keeps the same
-    underlying DOM node, and only updates the changed attributes.
+    -   Whenever the root elements have different types, React will tear down the old tree and build
+        the new tree from scratch.
+        Going from <a> to <img>, or from <Article> to <Comment>, or from <Button> to <div>
+        Any of those will lead to a full rebuild.
+    -   When comparing two React DOM elements of the same type, React looks at the attributes of both,
+        keeps the same underlying DOM node, and only updates the changed attributes.
 
 
 GOING FURTHER
@@ -32,20 +34,22 @@ An HOC is a pure function with zero side-effects.
 CONTEXT
 https://facebook.github.io/react/docs/context.html
 With React, it's easy to track the flow of data through your React components.
-When you look at a component, you can see which props are being passed, which makes your apps easy to reason about.
-In some cases, you want to pass data through the component tree without having to pass the props down manually at every level.
-You can do this directly in React with the powerful "context" API.
-The vast majority of applications do not need to use context.
-If you want your application to be stable, don't use context.
-It is an experimental API and it is likely to break in future releases of React.
-So if you want to use context, use it in one place (as in a HOC) to limit changes when API will change.
-Avoid to use context : it is far more likely that Redux is the right solution to your problem than that context is the right solution.
-Context must be used in a small area, for particular needs not for the global application.
-Do not dynamically update the context: context propagation might accidentally be blocked by a component if
-the props or state of this component are not modified => No re-rendering of a part of the component tree even if
-the context has changed.
+When you look at a component, you can see which props are being passed, which makes your apps easy
+to reason about. In some cases, you want to pass data through the component tree without having to
+pass the props down manually at every level. You can do this directly in React with the powerful
+"context" API.
 
-// Live example refacto with hoc
+The vast majority of applications do not need to use context.
+It is an experimental API and it is likely to break in future releases of React.
+If you want your application to be stable, don't use context.
+So if you want to use context, use it in one place (as in a HOC) to limit changes when API will change.
+Context must be used in a small area, for particular needs not for the global application.
+Avoid to use context : it is far more likely that Redux is the right solution to your problem than
+that context is the right solution.
+Do not dynamically update the context: context propagation might accidentally be blocked by a component if
+the props or state of this component are not modified => No re-rendering of a part of the component
+tree even if the context has changed.
+
 
 
 FUNCTION AS CHILD COMPONENT
@@ -61,11 +65,6 @@ https://facebook.github.io/react/docs/refs-and-the-dom.html
 In the typical React dataflow, props are the only way that parent components interact with their children.
 To modify a child, you re-render it with new props.
 However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow.
-The few cases for using refs are:
-    - Managing focus, text selection, or media playback.
-    - Triggering imperative animations.
-    - Integrating with third-party DOM libraries.
-Avoid using refs for anything that can be done declaratively.
 
 React supports a special attribute that you can attach to any component: ref.
 The ref attribute takes a callback function, and the callback will be executed immediately after
@@ -76,6 +75,12 @@ as its argument when the component mounts, null when its unmounts.
 When the ref attribute is used on a custom component declared as a class, the ref callback receives
 the mounted instance of the component as its argument on mounting, null on unmounting.
 Cannot be used on functional components (which have no instance).
+
+The few cases for using refs are:
+    - Managing focus, text selection, or media playback.
+    - Triggering imperative animations.
+    - Integrating with third-party DOM libraries.
+Avoid using refs for anything that can be done declaratively.
 
 
 EVENTS
@@ -89,9 +94,6 @@ The SyntheticEvent is pooled. This means that the SyntheticEvent object will be 
 will be nullified after the event callback has been invoked. This is for performance reasons.
 As such, you cannot access the event in an asynchronous way.
 If you want to access the event in an asynchronous way, you must copy desired attributes into a variable.
-
-
-// TODO Think about examples to code in live
 
 
 
