@@ -61,7 +61,7 @@ export default class Presentation extends React.Component {
                         style={{marginTop: '30px'}}
                         textSize="2rem"
                     >
-                        Working full-time with react for a bit more than 1.5 years
+                        Working full-time with react since June 2015
                     </Text>
                 </Slide>
 
@@ -125,6 +125,7 @@ export default class Presentation extends React.Component {
                     <List>
                         <ListItem>Pair Programming: switch every 15 minutes</ListItem>
                         <ListItem>The solutions are in the repo. Please don't check them.</ListItem>
+                        <ListItem>Call one of us to validate each step.</ListItem>
                     </List>
                 </Slide>
 
@@ -237,6 +238,7 @@ export default class Presentation extends React.Component {
                     <List>
                         <ListItem>Pair Programming: switch every 15 minutes</ListItem>
                         <ListItem>The solutions are in the repo. Please don't check them.</ListItem>
+                        <ListItem>Call one of us to validate each step.</ListItem>
                         <ListItem>Check mainPractice</ListItem>
                     </List>
                 </Slide>
