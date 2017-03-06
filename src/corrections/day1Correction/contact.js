@@ -6,7 +6,8 @@ import getContactDisplayName from './helpers/getContactDisplayName';
 import TwitterHandle from './twitterHandle';
 import Keyword from './keyword';
 import InlineList from './inlineList';
-import {fetchTwitterBio} from './mockData';
+
+import {fetchTwitterBio} from '../../practice/day1/mockData';
 
 const contactPropTypes = {
     contact: PropTypes.shape({

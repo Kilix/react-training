@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 
 import getUniqueKeywords from './helpers/getUniqueKeywords';
 import ContactList from './contactList';
-import contacts from './mockData';
 import Filters from './filters/filters';
 import hasContactKeywords from './helpers/hasContactKeywords';
+
+import contacts from '../../practice/day1/mockData';
 
 class App extends Component {
 

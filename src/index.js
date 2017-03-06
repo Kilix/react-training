@@ -15,6 +15,7 @@ import './intro';
 // import './examples/children';
 
 // import './practice/day1/app';
+// import './corrections/day1Correction/app';
 
 // Second Course
 // import './examples/secondCourse/reconciliation';
