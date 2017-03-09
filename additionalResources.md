@@ -11,9 +11,9 @@ Not being fluent with ES2015/2016, and not comfortable with pure array manipulat
 - Eric Eliott writes a lot of cool blog posts about JavaScript in general, but focuses mainly about the benefits of FP on [Medium](https://medium.com/@_ericelliott/latest), for instance:
     - [10 interview questions every javascript developer should know](https://medium.com/javascript-scene/10-interview-questions-every-javascript-developer-should-know-6fa6bdf5ad95#.w7316qunx)
     - [What is a closure?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.rg6t8we4i)
-    - [What is a function composition?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.rg6t8we4i)
-    - [What is a pure function?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.rg6t8we4i)
-    - [Difference between class and prototype](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-closure-b2f0d2152b36#.rg6t8we4i)
+    - [What is a function composition?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-function-composition-20dfb109a1a0#.vgoz73la0)
+    - [What is a pure function?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-pure-function-d1c076bec976#.oelpkwny1)
+    - [Difference between class and prototype](https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-difference-between-class-prototypal-inheritance-e4cd0a7562e9#.k2uzqxk9c)
 
 ## React & Redux
 - Dan Abramov did a great and free intro course on [redux on egghead](https://egghead.io/courses/getting-started-with-redux). I heavily used it as a starting point for the Redux course
@@ -23,8 +23,8 @@ Not being fluent with ES2015/2016, and not comfortable with pure array manipulat
 
 ## Interesting libraries in the ecosystem
 - [ImmutableJS](http://facebook.github.io/immutable-js/) immutable data structures
-- [Ramda](ramdajs.com/docs/) your functional lodash
-- [Flow](flowtype.org) static type analysis
+- [Ramda](http://ramdajs.com/docs/) your functional lodash
+- [Flow](http://flowtype.org) static type analysis
 - [normalizr](https://github.com/paularmstrong/normalizr/)
 - [reselect](https://github.com/reactjs/reselect)
 - CSS in JS ([fela](https://github.com/rofrischmann/fela), [styled-components](http://styled-components.com/))
