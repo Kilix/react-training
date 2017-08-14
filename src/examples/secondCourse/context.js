@@ -1,6 +1,8 @@
 // Classic context for Fruit color
 // => HOC
-import React, {PropTypes, Component} from 'react';
+import PropTypes from 'prop-types';
+
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class Fruit extends Component {

@@ -7,7 +7,6 @@ import React from 'react';
 // In subscribe, forceUpdate
 
 // Then move on with mapStateToProps => select the relevant portion of the state
-// mapDispatchToProps => the component shouldn't know what the dispatch method is.
 
 const connect = BaseComponent => {
     return class Connect extends React.Component {

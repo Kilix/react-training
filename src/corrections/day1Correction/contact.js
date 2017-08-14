@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import './contact.css';
 
@@ -54,7 +55,7 @@ class Contact extends Component {
             </div>
         );
     }
-} ;
+}
 Contact.propTypes = contactPropTypes;
 
 export default Contact;
