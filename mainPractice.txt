@@ -35,6 +35,3 @@ ETAPES BONUS
     -   Typer l'application grace à Flow
         https://flowtype.org/
         http://slides.com/augustinlf/flow-type#/
-
-    -   Utiliser Ramda pour tout ce qui est gestion d'objets / de tableaux
-        http://ramdajs.com/

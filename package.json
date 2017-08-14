@@ -16,7 +16,6 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-promise-middleware": "^4.2.0",
-    "reselect": "^2.5.4",
     "superagent": "^3.4.4"
   },
   "scripts": {
