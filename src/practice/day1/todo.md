@@ -1,6 +1,6 @@
 ## Steps
-- Render a simple list of the contact, using the data (the default export) of mockData
-- Add filters
+- Render a simple list of contacts, using the data (the default export) of mockData : firstname, lastname, keywords, twitter handle
+- Add filters (only an active filter at the same time, clicking on an active filter button deactivates it)
 - Fetch the bio using `fetchTwitterBio`
 
 ## Tips

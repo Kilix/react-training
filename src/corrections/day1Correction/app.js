@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 import getUniqueKeywords from './helpers/getUniqueKeywords';
@@ -10,36 +10,25 @@ import hasContactKeywords from './helpers/hasContactKeywords';
 import contacts from '../../practice/day1/mockData';
 
 class App extends Component {
-
     static propTypes = {
         contacts: PropTypes.array.isRequired,
     };
 
     state = {
-        selectedKeywords: [],
+        selectedKeyword: null,
     };
 
-    addKeyword = (keyword) => {
-        const isAlreadySet = this.state.selectedKeywords.includes(keyword);
-        if (!isAlreadySet)
-            this.setState({selectedKeywords: this.state.selectedKeywords.concat([keyword])});
-    }
-
-    removeKeyword = (keywordToRemove) => {
-        this.setState({
-            selectedKeywords: this.state.selectedKeywords.filter(
-                keyword => keyword !== keywordToRemove,
-            ),
-        });
-    }
+    selectKeyword = keyword => {
+        this.setState((prevState, props) => ({
+            selectedKeyword: prevState.selectedKeyword === keyword ? null : keyword,
+        }));
+    };
 
     render() {
-        const {
-            contacts,
-        } = this.props;
+        const {contacts} = this.props;
 
-        const filteredContacts = contacts.filter(
-            contact => hasContactKeywords(contact, this.state.selectedKeywords),
+        const filteredContacts = contacts.filter(contact =>
+            hasContactKeywords(contact, this.state.selectedKeyword)
         );
 
         return (
@@ -47,9 +36,8 @@ class App extends Component {
                 <h1>My contacts</h1>
                 <Filters
                     keywords={getUniqueKeywords(contacts)}
-                    selectedKeywords={this.state.selectedKeywords}
-                    addKeyword={this.addKeyword}
-                    removeKeyword={this.removeKeyword}
+                    selectedKeyword={this.state.selectedKeyword}
+                    selectKeyword={this.selectKeyword}
                 />
                 <ContactList list={filteredContacts} />
             </div>
@@ -57,7 +45,4 @@ class App extends Component {
     }
 }
 
-ReactDOM.render(
-    <App contacts={contacts} />,
-    document.getElementById('root'),
-);
+ReactDOM.render(<App contacts={contacts} />, document.getElementById('root'));
