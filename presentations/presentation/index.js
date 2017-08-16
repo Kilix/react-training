@@ -219,6 +219,14 @@ export default class Presentation extends React.Component {
                 </Slide>
 
                 <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
+                    <Heading size={6} caps>Let's first use it without React</Heading>
+                </Slide>
+
+                <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
+                    <Heading size={6} caps>There are bindings for react, angular & co.</Heading>
+                </Slide>
+
+                <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
                     <Heading size={6} cape>Let's use that in real life</Heading>
                 </Slide>
 
