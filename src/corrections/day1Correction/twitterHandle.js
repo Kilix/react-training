@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 const TwitterHandle = ({handle}) => (
     <a href={`https://twitter.com/${handle}`}>{`@${handle}`}</a>

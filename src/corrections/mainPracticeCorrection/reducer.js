@@ -1,5 +1,3 @@
-import R from 'ramda';
-
 import * as actions from './actions';
 
 export const initialState = {
@@ -16,24 +14,34 @@ const reducer = (state = initialState, action) => {
                 entities: {artist},
                 result,
             } = action.payload;
-            return R.pipe(
-                R.assoc('artistsMap', artist),
-                R.assoc('topArtists', result),
-            )(state);
+            return {
+                ...state,
+                artistsMap: artist,
+                topArtists: result,
+            };
         }
 
         case actions.OPEN_ARTIST_CARD: {
             const {artistName} = action.payload;
-            return R.assoc('selectedArtistName', artistName, state);
+            return {
+                ...state,
+                selectedArtistName: artistName
+            };
         }
 
         case actions.GET_ARTIST_INFO_SUCCESS: {
             const {entities: {artist}, result} = action.payload;
-            return R.evolve({
+            const {artistsMap} = state;
+            return {
+                ...state,
                 artistsMap: {
-                    [result]: R.merge(artist[result]),
-                },
-            }, state);
+                    ...artistsMap,
+                    [result]: {
+                        ...artistsMap[result],
+                        ...artist[result],
+                    }
+                }
+            };
         }
 
         default:

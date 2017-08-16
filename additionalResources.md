@@ -22,11 +22,11 @@ Not being fluent with ES2015/2016, and not comfortable with pure array manipulat
 - [create-react-app](https://github.com/facebookincubator/create-react-app) (this abstract webpack, babel, the configuration of the test runner)
 
 ## Interesting libraries in the ecosystem
+- [normalizr](https://github.com/paularmstrong/normalizr/)
+- [reselect](https://github.com/reactjs/reselect)
 - [ImmutableJS](http://facebook.github.io/immutable-js/) immutable data structures
 - [Ramda](http://ramdajs.com/docs/) your functional lodash
 - [Flow](http://flowtype.org) static type analysis
-- [normalizr](https://github.com/paularmstrong/normalizr/)
-- [reselect](https://github.com/reactjs/reselect)
 - CSS in JS ([fela](https://github.com/rofrischmann/fela), [styled-components](http://styled-components.com/))
 - [MobX](https://github.com/mobxjs/mobx) (would replace Redux, less verbose, more magic)
 - [redux-observable](https://redux-observable.js.org) a redux middleware using RxJS to handle your async data-flow

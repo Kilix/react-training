@@ -1,9 +1,10 @@
-import React, {PropTypes, Component} from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 const getColorDecorator = (WrappedComponent) => class extends Component {
     static contextTypes = {
-        color: React.PropTypes.string
+        color: PropTypes.string
     };
 
     render() {
@@ -42,7 +43,7 @@ class Parent extends Component {
     }
 
     static childContextTypes = {
-        color: React.PropTypes.string
+        color: PropTypes.string
     };
 
     render() {
