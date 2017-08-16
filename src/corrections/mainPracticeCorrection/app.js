@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {applyMiddleware, createStore} from 'redux';
 
 import {middlewares} from './libs/middlewares';
-import reducer, {initialState} from './reducer';
+import reducer from './reducer';
 import ArtistsList from './artistsList';
 import ArtistCard from './artistCard';
 
@@ -24,7 +24,7 @@ class App extends Component {
 
 const store = createStore(
     reducer,
-    initialState,
+    undefined,
     applyMiddleware(...middlewares),
 );
 
