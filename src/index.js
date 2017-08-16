@@ -8,6 +8,9 @@ import './intro';
 // import './examples/composition';
 // import './examples/style';
 
+// import './practice/intro/app';
+// import './corrections/intro/app';
+
 // Components
 // import './examples/state';
 // import './examples/propTypesDefaultProps';

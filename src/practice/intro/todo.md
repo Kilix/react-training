@@ -1,0 +1,4 @@
+- Render your name
+- Render a list of people attending the training (at least four people, use an array)
+- Create a component that renders a list of person, taking the list as a prop
+- Render each odd person in blue, if not in red (reminder, array.map's callback second param is the index of the array)
