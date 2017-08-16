@@ -1,4 +1,3 @@
-const hasContactKeywords = (contact, keywords) => keywords
-    .every(keyword => contact.keywords.includes(keyword));
+const hasContactKeywords = (contact, keyword) => !keyword || contact.keywords.includes(keyword);
 
 export default hasContactKeywords;

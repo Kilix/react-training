@@ -7,27 +7,23 @@ import InlineList from '../inlineList';
 import './filters.css';
 
 const filtersPropTypes = {
-    addKeyword: PropTypes.func.isRequired,
     keywords: PropTypes.array.isRequired,
-    removeKeyword: PropTypes.func.isRequired,
-    selectedKeywords: PropTypes.array.isRequired,
+    selectKeyword: PropTypes.func.isRequired,
+    selectedKeyword: PropTypes.string,
 };
 
-const Filters = ({keywords, selectedKeywords, addKeyword, removeKeyword}) => (
+const Filters = ({keywords, selectedKeyword, selectKeyword}) =>
     <div className="filters">
         <InlineList elements={keywords}>
-            {(keyword, index) => (
+            {(keyword, index) =>
                 <FilterItem
                     key={index}
                     value={keyword}
-                    selected={selectedKeywords.includes(keyword)}
-                    selectItem={addKeyword}
-                    unSelectItem={removeKeyword}
-                />
-            )}
+                    selected={selectedKeyword === keyword}
+                    selectItem={selectKeyword}
+                />}
         </InlineList>
-    </div>
-);
+    </div>;
 Filters.propTypes = filtersPropTypes;
 
 export default Filters;
