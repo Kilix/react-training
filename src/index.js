@@ -32,4 +32,5 @@ import './intro';
 // import './reduxCourse/example';
 
 // Main practice
+// import './fullReduxApp/main';
 // import './practice/main/app';

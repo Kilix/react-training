@@ -1,5 +1,7 @@
 http://www.last.fm/fr/api
 
+Vous trouverez un example de react + redux dans src/fullReduxApp si besoin
+
 ETAPE 1
 Récupérer la liste du top artistes et l'afficher. Pour chaque artiste, afficher :
     - son image (la première du tableau)
