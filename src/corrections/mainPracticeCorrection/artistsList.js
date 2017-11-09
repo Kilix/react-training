@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import PropTypes from 'prop-types';
@@ -13,12 +13,11 @@ import * as actions from './actions';
 const mapStateToArtistsListProps = state => ({
     artistsList: getTopArtistsWithInfo(state),
 });
-const mapDispatchToArtistsListProps = (dispatch) => ({
-    getTopArtists: bindActionCreators(actions.getTopArtists, dispatch),
-});
+const mapDispatchToArtistsListProps = {
+    getTopArtists: actions.getTopArtists,
+};
 
 class ArtistsList extends Component {
-
     static propTypes = {
         artistsList: PropTypes.array.isRequired,
         getTopArtists: PropTypes.func.isRequired,
@@ -34,15 +33,13 @@ class ArtistsList extends Component {
 
     sortByPlayCount = () => {
         this.setState({sorted: !this.state.sorted});
-    }
+    };
 
     render() {
         const {artistsList} = this.props;
         const {sorted} = this.state;
         const sortMsg = sorted ? 'Remove sorting' : 'Sort by play count';
-        const artists = sorted
-            ? R.sort(sortArtistsByPlayCount, artistsList)
-            : artistsList;
+        const artists = sorted ? R.sort(sortArtistsByPlayCount, artistsList) : artistsList;
 
         const header = (
             <div>
@@ -52,7 +49,7 @@ class ArtistsList extends Component {
         );
 
         return (
-            <Card {...{header}}>
+            <Card header={header}>
                 <table>
                     <thead>
                         <tr>
@@ -63,9 +60,7 @@ class ArtistsList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {artists.map(
-                            ({name}) => <ArtistRow key={name} artistName={name} />
-                        )}
+                        {artists.map(({name}) => <ArtistRow key={name} artistName={name} />)}
                     </tbody>
                 </table>
             </Card>

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -13,12 +13,11 @@ const mapStateToArtistCardProps = state => ({
     artist: getSelectedArtist(state),
     selectedArtistName: getSelectedArtistName(state),
 });
-const mapDispatchToArtistCardProps = (dispatch) => ({
-    getArtistInfo: bindActionCreators(actions.getArtistInfo, dispatch),
-});
+const mapDispatchToArtistCardProps = {
+    getArtistInfo: actions.getArtistInfo,
+};
 
 class ArtistCard extends Component {
-
     static propTypes = {
         artist: PropTypes.object,
         selectedArtistName: PropTypes.string,
@@ -28,40 +27,30 @@ class ArtistCard extends Component {
     getChildContext() {
         const {artist} = this.props;
 
-        if (!artist || !artist.tags)
-            return {theme: 'default'};
+        if (!artist || !artist.tags) return {theme: 'default'};
 
-        if (hasTag('rock', artist.tags))
-            return {theme: 'rock'};
+        if (hasTag('rock', artist.tags)) return {theme: 'rock'};
 
-        if (hasTag('rnb', artist.tags))
-            return {theme: 'rnb'};
+        if (hasTag('rnb', artist.tags)) return {theme: 'rnb'};
 
         return {theme: 'default'};
     }
 
     static childContextTypes = {
-        theme: PropTypes.string
+        theme: PropTypes.string,
     };
 
     componentWillReceiveProps(nextProps) {
-        const {
-            selectedArtistName,
-            getArtistInfo,
-        } = nextProps;
+        const {selectedArtistName, getArtistInfo} = nextProps;
 
         if (selectedArtistName && this.props.selectedArtistName !== selectedArtistName)
             getArtistInfo(selectedArtistName);
     }
 
     render() {
-        const {
-            artist,
-            selectedArtistName,
-        } = this.props;
+        const {artist, selectedArtistName} = this.props;
 
-        if (!artist)
-            return null;
+        if (!artist) return null;
 
         const imgUrl = artist.image[2]['#text'];
         const similarArtists = artist.similar && getSimilarArtistsNames(artist.similar);
@@ -74,18 +63,23 @@ class ArtistCard extends Component {
                             <img src={imgUrl} alt={artist.name} />
                         </a>
                         <div className="artist-card__details">
-                            <div>Play count: {artist.stats && formatNumberToString(artist.stats.playcount)}</div>
+                            <div>
+                                Play count:{' '}
+                                {artist.stats && formatNumberToString(artist.stats.playcount)}
+                            </div>
                             {artist.bio &&
-                                <div dangerouslySetInnerHTML={{__html: artist.bio.summary}} />
-                            }
+                                <div dangerouslySetInnerHTML={{__html: artist.bio.summary}} />}
                             <div className="artist-card__tags">
-                                {artist.tags && artist.tags.tag.map(tag =>
-                                    <Tag key={tag.name} name={tag.name} />
-                                )}
+                                {artist.tags &&
+                                    artist.tags.tag.map(tag =>
+                                        <Tag key={tag.name} name={tag.name} />
+                                    )}
                             </div>
                         </div>
                     </div>
-                    <div>Similar Artists: {similarArtists}</div>
+                    <div>
+                        Similar Artists: {similarArtists}
+                    </div>
                 </div>
             </Card>
         );

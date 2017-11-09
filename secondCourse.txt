@@ -31,6 +31,14 @@ Rather, an HOC composes the original component by wrapping it in a container com
 An HOC is a pure function with zero side-effects.
 
 
+FUNCTION AS CHILD COMPONENT
+https://medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9#.mayuaur98
+You can pass to components a function as children. With it, we decouple the parent and child component
+(only the composer knows how to apply parameters passed to the child component, the direct parent doesn't know)
+With function as child component, there is no props name collision as there may be with decorators
+(HOC pass named props, that could overwrite existing props).
+
+
 CONTEXT
 https://facebook.github.io/react/docs/context.html
 With React, it's easy to track the flow of data through your React components.
@@ -49,15 +57,6 @@ that context is the right solution.
 Do not dynamically update the context: context propagation might accidentally be blocked by a component if
 the props or state of this component are not modified => No re-rendering of a part of the component
 tree even if the context has changed.
-
-
-
-FUNCTION AS CHILD COMPONENT
-https://medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9#.mayuaur98
-You can pass to components a function as children. With it, we decouple the parent and child component
-(only the composer knows how to apply parameters passed to the child component, the direct parent doesn't know)
-With function as child component, there is no props name collision as there may be with decorators
-(HOC pass named props, that could overwrite existing props).
 
 
 REFS
