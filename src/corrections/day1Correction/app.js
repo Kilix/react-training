@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-import getUniqueKeywords from './helpers/getUniqueKeywords';
+import keywords from './helpers/keywords';
 import ContactList from './contactList';
 import Filters from './filters/filters';
 import hasContactKeywords from './helpers/hasContactKeywords';
@@ -35,7 +35,7 @@ class App extends Component {
             <div>
                 <h1>My contacts</h1>
                 <Filters
-                    keywords={getUniqueKeywords(contacts)}
+                    keywords={keywords}
                     selectedKeyword={this.state.selectedKeyword}
                     selectKeyword={this.selectKeyword}
                 />

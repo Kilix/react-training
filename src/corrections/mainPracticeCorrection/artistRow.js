@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
@@ -10,12 +10,11 @@ import * as actions from './actions';
 const mapStateToArtistRowProps = (state, ownProps) => ({
     artist: getArtistByName(state, ownProps.artistName),
 });
-const mapDispatchToArtistRowProps = (dispatch) => ({
-    openArtistCard: bindActionCreators(actions.openArtistCard, dispatch),
-});
+const mapDispatchToArtistRowProps = {
+    openArtistCard: actions.openArtistCard,
+};
 
 class ArtistRow extends Component {
-
     static propTypes = {
         artist: PropTypes.object.isRequired,
         artistName: PropTypes.string.isRequired,
@@ -26,7 +25,7 @@ class ArtistRow extends Component {
         const {artist, openArtistCard} = this.props;
         openArtistCard(artist.name);
         window.scrollTo(0, 0);
-    }
+    };
 
     render() {
         const {artist} = this.props;
@@ -39,8 +38,14 @@ class ArtistRow extends Component {
                 <td className="artist-row__name" onClick={this.openArtistCard}>
                     {artist.name}
                 </td>
-                <td>{formatNumberToString(artist.playcount)}</td>
-                <td><a href={artist.url} target="_blank">{artist.url}</a></td>
+                <td>
+                    {formatNumberToString(artist.playcount)}
+                </td>
+                <td>
+                    <a href={artist.url} target="_blank">
+                        {artist.url}
+                    </a>
+                </td>
             </tr>
         );
     }
