@@ -6,7 +6,7 @@ the view cannot directly update the model, they can only call functions that wil
 in the model. This fit React idea, where you pass data and callbacks to lower components.
 
 HISTORY
-Redux was released at the 2015 react-europe conference by Dan Abramov, its creator (now working at)
+Redux was released at the 2015 react-europe conference by Dan Abramov, its creator, now working at
 Facebook, and co created by Andrew Clark (@acdlite) now also working at Facebook.
 
 The idea of Redux is to have a central State, describing the state of your application, that you can
@@ -57,6 +57,12 @@ Example: implement the store
 In example.js, we'll see how redux works, and the three methods of the store.
 
 Show code of its implementation
+
+----
+
+Redux practice
+
+----
 
 If you remember what we showed yesterday during the introduction to React, we quickly reached the
 same limitations, rerendering the whole app when wanting to update it, then we switched to setState

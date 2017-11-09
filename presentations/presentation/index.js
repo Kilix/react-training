@@ -73,8 +73,8 @@ export default class Presentation extends React.Component {
                         <ListItem textSize="2rem">Introduction to React core concepts ~1 hour</ListItem>
                         <ListItem textSize="2rem">React API ~2 hours</ListItem>
                         <ListItem textSize="2rem">Lunch break</ListItem>
-                        <ListItem textSize="2rem">Practice ~3 hours</ListItem>
                         <ListItem textSize="2rem">Going further with react ~1 hour</ListItem>
+                        <ListItem textSize="2rem">Practice ~3 hours</ListItem>
                         <ListItem textSize="2rem">Home sweet home</ListItem>
                         <ListItem textSize="2rem">Redux ~3 hours</ListItem>
                         <ListItem textSize="2rem">Lunch break</ListItem>
