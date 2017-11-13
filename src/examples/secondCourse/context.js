@@ -2,7 +2,7 @@
 // => HOC
 import PropTypes from 'prop-types';
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 class Fruit extends Component {
@@ -18,7 +18,9 @@ class Fruit extends Component {
 class List extends Component {
     render() {
         return (
-            <div>{['apple', 'orange', 'peach'].map(fruit => <Fruit key={fruit} name={fruit}/>)}</div>
+            <div>
+                {['apple', 'orange', 'peach'].map(fruit => <Fruit key={fruit} name={fruit} />)}
+            </div>
         );
     }
 }
@@ -28,7 +30,4 @@ class Parent extends Component {
     }
 }
 
-ReactDOM.render(
-    <Parent />,
-    document.getElementById('root'),
-)
+ReactDOM.render(<Parent />, document.getElementById('root'));

@@ -4,10 +4,7 @@ import ReactDOM from 'react-dom';
 import './composition.css';
 
 const Button = ({type, label}) => (
-    <button
-        className="pure-button"
-        type={type}
-    >
+    <button className="pure-button" type={type}>
         {label}
     </button>
 );
@@ -32,7 +29,4 @@ const App = () => (
     </form>
 );
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'));

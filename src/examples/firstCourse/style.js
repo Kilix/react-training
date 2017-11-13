@@ -23,11 +23,8 @@ const App = () => (
         <ElementWithClasses text="A" />
         <ElementWithClasses text="B" selected />
         <ElementWithInlineStyle text="C" />
-        <ElementWithInlineStyle text="D" selected/>
+        <ElementWithInlineStyle text="D" selected />
     </div>
 );
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));

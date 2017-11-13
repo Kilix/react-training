@@ -132,13 +132,10 @@ export default class Presentation extends React.Component {
                     </BlockQuote>
                 </Slide>
 
-                <Slide transition={['fade']} bgColor="secondary" textColor="primary">
-                    <Heading size={6}>Practice</Heading>
-                    <List>
-                        <ListItem>Pair Programming: switch every 15 minutes</ListItem>
-                        <ListItem>The solutions are in the repo. Please don't check them.</ListItem>
-                        <ListItem>Call one of us to validate each step.</ListItem>
-                    </List>
+                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+                    <Heading size={1} caps>
+                        Let's render something!
+                    </Heading>
                 </Slide>
 
                 <Slide transition={['zoom']} bgImage={images.kilix} id="futher-with-react">
@@ -199,6 +196,15 @@ export default class Presentation extends React.Component {
                         React events are pretty close from the DOM ones, with a bit of cross-browser
                         normalization and the fact that they are pooled.
                     </Text>
+                </Slide>
+
+                <Slide transition={['fade']} bgColor="secondary" textColor="primary">
+                    <Heading size={6}>Practice</Heading>
+                    <List>
+                        <ListItem>Pair Programming: switch every 15 minutes</ListItem>
+                        <ListItem>The solutions are in the repo. Please don't check them.</ListItem>
+                        <ListItem>Call one of us to validate each step.</ListItem>
+                    </List>
                 </Slide>
 
                 <Slide transition={['zoom']} bgImage={images.kilix} id="redux">
