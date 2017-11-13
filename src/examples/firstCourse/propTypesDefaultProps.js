@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 class ComponentWithPropTypes extends Component {
@@ -32,7 +32,4 @@ const App = () => (
     </div>
 );
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root'),
-)
+ReactDOM.render(<App />, document.getElementById('root'));

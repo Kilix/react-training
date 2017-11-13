@@ -13,7 +13,7 @@ React building block is the Component. It declares the DOM it should render. Dec
 you don't work on the DOM in an imperative way: you say what you want, React makes it work for you.
 
 
-Example: intro
+Example: intro, don't focus on the detail/syntax
 
 ----End intro----
 

@@ -1,21 +1,21 @@
 import './index.css';
 import 'purecss/build/pure.css';
 
-import './intro';
+import './examples/intro/intro';
 
 // JSX
-// import './examples/jsx';
-// import './examples/composition';
-// import './examples/style';
+// import './examples/firstCourse/jsx';
+// import './examples/firstCourse/composition';
+// import './examples/firstCourse/style';
 
 // import './practice/intro/app';
 // import './corrections/intro/app';
 
 // Components
-// import './examples/state';
-// import './examples/propTypesDefaultProps';
-// import './examples/lifeCycle';
-// import './examples/children';
+// import './examples/firstCourse/state';
+// import './examples/firstCourse/propTypesDefaultProps';
+// import './examples/firstCourse/lifeCycle';
+// import './examples/firstCourse/children';
 
 // import './practice/day1/app';
 // import './corrections/day1Correction/app';
