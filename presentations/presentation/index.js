@@ -79,7 +79,6 @@ export default class Presentation extends React.Component {
                         <ListItem textSize="2rem">Going further with react ~1 hour</ListItem>
                         <ListItem textSize="2rem">Practice ~3 hours</ListItem>
                         <ListItem textSize="2rem">Home sweet home</ListItem>
-                        <ListItem textSize="2rem">Redux ~3 hours</ListItem>
                         <ListItem textSize="2rem">Lunch break</ListItem>
                         <ListItem textSize="2rem">
                             Let's build a full-fledged project ~4 hours
@@ -204,93 +203,6 @@ export default class Presentation extends React.Component {
                         <ListItem>Pair Programming: switch every 15 minutes</ListItem>
                         <ListItem>The solutions are in the repo. Please don't check them.</ListItem>
                         <ListItem>Call one of us to validate each step.</ListItem>
-                    </List>
-                </Slide>
-
-                <Slide transition={['zoom']} bgImage={images.kilix} id="redux">
-                    <Heading size={1} fit caps lineHeight={1} textColor="primary">
-                        Redux
-                    </Heading>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        One way data flow
-                    </Heading>
-                    <Text size={6}>Components work with a top-down data flow</Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        One-way data flow
-                    </Heading>
-                    <Text>
-                        Your views don't have any control on the model, they cannot modify it
-                    </Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        Redux
-                    </Heading>
-                    <Text>A small library to manage your state</Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        Actions, simple objects describing a request
-                    </Heading>
-                    <CodePane
-                        lang="js"
-                        source={`{type: 'ADD_FILTER', keyword: 'react'}
-{type: 'REMOVE_FILTER', keyword: 'fp'}
-{type: 'RECEIVE_TWITTER_BIO': contactId: 1, value: 'blablabla'}`}
-                    />
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        The reducer updates the state after each action
-                    </Heading>
-                    <Text>S' = F(S, A)</Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        The reducer updates the state after each action
-                    </Heading>
-                    <Text>S' = F(S, A)</Text>
-                    <Text>And yes, it's a pure function</Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        Let's first use it without React
-                    </Heading>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        There are bindings for react, angular & co.
-                    </Heading>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} cape>
-                        Let's use that in real life
-                    </Heading>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} cape>
-                        Best-practices
-                    </Heading>
-                    <List>
-                        <ListItem>Single source of truth</ListItem>
-                        <ListItem>No duplication</ListItem>
-                        <ListItem>Don't store something that can be computed</ListItem>
-                        <ListItem>Normalize your data</ListItem>
-                        <ListItem>Keep presentational and container components separated</ListItem>
                     </List>
                 </Slide>
 
