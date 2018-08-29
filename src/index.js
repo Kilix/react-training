@@ -12,10 +12,10 @@ import './examples/intro/intro';
 // import './corrections/intro/app';
 
 // Components
-// import './examples/firstCourse/state';
 // import './examples/firstCourse/propTypesDefaultProps';
-// import './examples/firstCourse/lifeCycle';
 // import './examples/firstCourse/children';
+// import './examples/firstCourse/state';
+// import './examples/firstCourse/lifeCycle';
 
 // import './practice/day1/app';
 // import './corrections/day1Correction/app';

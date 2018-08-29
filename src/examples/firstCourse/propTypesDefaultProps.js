@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 class ComponentWithPropTypes extends Component {
+    // This functions only at runtime
     static propTypes = {
         name: PropTypes.string.isRequired,
     };

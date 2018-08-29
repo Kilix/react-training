@@ -31,11 +31,10 @@ It's just a JS function call. Once you realise that, how to do stuff, what you c
     evaluating a value => {}
     conditional => ternary (or bool && val)
     loop => Iterable.map
+    keys
     partials => function calls/other component
     html props are a bit different => some exceptions (className) and camelCase
     bool default to true
-Example
-    gotcha: bind this when passing function to other component (context changes, for instance events) `examples/bind`
 Example
 
 
@@ -48,16 +47,18 @@ Advice about composition
     In react, if your JSX is severely nested, it probably shows that you're not using enough
     components. You should compose components together
 
+STYLING
+Example
 
 Practice -> intro
 
-
 Component API
-this.setState   => how it works. It's about render, not used in render, does not belong in the state
 defaultProps    can be found on functional components
-propTypes    can be found on functional components
+propTypes       can be found on functional components
+children        it's just a prop
+this.setState
+    - how it works => updates the state and triggers a rerender of the component
+    - It's about render, not used in render, does not belong in the state
+    - what if is the component is unmounted ? State is lost
+    - How to listen to prop changes? See lifecycle
 lifecycle   => parent's state is kept => lift the state up
-
-
-Escape hatch (if time left)
-    controlled/uncontrolled form?

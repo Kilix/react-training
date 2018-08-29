@@ -14,6 +14,8 @@ const App = () => (
                 <button type="button">with a button</button>
             </form>
         </Paper>
+        {/* This is not a common use */}
+        <Paper children={<div>Hoy</div>} />
     </div>
 );
 
