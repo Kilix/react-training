@@ -22,6 +22,7 @@ Not being fluent with ES2015/2016, and not comfortable with pure array manipulat
 - [create-react-app](https://github.com/facebookincubator/create-react-app) (this abstract webpack, babel, the configuration of the test runner)
 
 ## Interesting libraries in the ecosystem
+- [redux](https://redux.js.org/)
 - [normalizr](https://github.com/paularmstrong/normalizr/)
 - [reselect](https://github.com/reactjs/reselect)
 - [ImmutableJS](http://facebook.github.io/immutable-js/) immutable data structures

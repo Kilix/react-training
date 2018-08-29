@@ -28,9 +28,5 @@ import './examples/intro/intro';
 // import './examples/secondCourse/refs';
 // import './examples/secondCourse/events';
 
-// Redux
-// import './reduxCourse/example';
-
 // Main practice
-// import './fullReduxApp/main';
 // import './practice/main/app';
