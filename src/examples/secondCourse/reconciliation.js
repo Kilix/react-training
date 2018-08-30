@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
 class Fruit extends Component {
@@ -42,7 +42,4 @@ class Parent extends Component {
     }
 }
 
-ReactDOM.render(
-    <Parent />,
-    document.getElementById('root'),
-)
+ReactDOM.render(<Parent />, document.getElementById('root'));

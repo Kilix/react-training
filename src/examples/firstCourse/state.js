@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 
 const Element = ({clicked}) => {
     console.log('Element renders');
-    return <div>{clicked ? 'Clicked!' : 'Not clicked!'}</div>
-}
+    return <div>{clicked ? 'Clicked!' : 'Not clicked!'}</div>;
+};
 
 class App extends React.Component {
     constructor(props) {
@@ -23,7 +23,7 @@ class App extends React.Component {
         console.log('App renders');
         return (
             <button onClick={() => this.handleClick()}>
-                <Element clicked={this.state.clicked}/>
+                <Element clicked={this.state.clicked} />
             </button>
         );
     }
@@ -31,7 +31,7 @@ class App extends React.Component {
 // What about unmount?
 const Parent = () => {
     console.log('parent renders');
-    return <App/>
-}
+    return <App />;
+};
 
 ReactDOM.render(<Parent />, document.getElementById('root'));

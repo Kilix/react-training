@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import './contact.css';
 
@@ -12,19 +12,18 @@ import {fetchTwitterBio} from '../../practice/day1/mockData';
 
 const contactPropTypes = {
     contact: PropTypes.shape({
-         firstname: PropTypes.string.isRequired,
-         middleName: PropTypes.string,
-         lastname: PropTypes.string.isRequired,
-         twitterHandle: PropTypes.string,
-         keywords: PropTypes.array.isRequired,
+        firstname: PropTypes.string.isRequired,
+        middleName: PropTypes.string,
+        lastname: PropTypes.string.isRequired,
+        twitterHandle: PropTypes.string,
+        keywords: PropTypes.array.isRequired,
     }).isRequired,
 };
 
 class Contact extends Component {
-
     state = {
         twitterBio: null,
-    }
+    };
 
     componentDidMount() {
         const {contact} = this.props;
@@ -36,7 +35,7 @@ class Contact extends Component {
     }
 
     render() {
-        const {contact} = this.props
+        const {contact} = this.props;
 
         return (
             <div className="contact">
@@ -48,9 +47,7 @@ class Contact extends Component {
                     {(element, index) => <Keyword keyword={element} key={index} />}
                 </InlineList>
                 {this.state.twitterBio && (
-                    <div className="contact__bio">
-                        {this.state.twitterBio}
-                    </div>
+                    <div className="contact__bio">{this.state.twitterBio}</div>
                 )}
             </div>
         );

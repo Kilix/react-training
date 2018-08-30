@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Provider extends Component {
-
     static propTypes = {
         children: PropTypes.node.isRequired,
         store: PropTypes.object.isRequired,
-    }
+    };
 
     static childContextTypes = {
         store: PropTypes.object.isRequired,
-    }
+    };
 
     getChildContext() {
         return {

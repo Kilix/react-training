@@ -20,15 +20,11 @@ const openArtistCard = (artistName = null) => ({
 export const GET_ARTIST_INFO_PENDING = 'GET_ARTIST_INFO_PENDING';
 export const GET_ARTIST_INFO_SUCCESS = 'GET_ARTIST_INFO_SUCCESS';
 export const GET_ARTIST_INFO_ERROR = 'GET_ARTIST_INFO_ERROR';
-const getArtistInfo = (artistName) => ({
+const getArtistInfo = artistName => ({
     type: 'GET_ARTIST_INFO',
     payload: {
         promise: getArtistInfoPromise(artistName).then(normalizeArtist),
     },
 });
 
-export {
-    getArtistInfo,
-    getTopArtists,
-    openArtistCard,
-};
+export {getArtistInfo, getTopArtists, openArtistCard};

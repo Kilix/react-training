@@ -1,10 +1,10 @@
 import {getArtistByName, getSelectedArtist} from '../selectors';
 
 const artistsMap = {
-    'John': {name: 'John'},
-    'Paul': {name: 'Paul'},
-    'Ringo': {name: 'Ringo'},
-    'George': {name: 'George'},
+    John: {name: 'John'},
+    Paul: {name: 'Paul'},
+    Ringo: {name: 'Ringo'},
+    George: {name: 'George'},
 };
 
 describe('getArtistByName', () => {
@@ -22,7 +22,7 @@ describe('getArtistByName', () => {
         };
         const artist = getArtistByName(state, 'John');
         expect(artist).toEqual(null);
-    })
+    });
 });
 
 describe('getSelectedArtist', () => {

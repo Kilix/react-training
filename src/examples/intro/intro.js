@@ -8,7 +8,11 @@ const App = () => {
     return (
         <div className="App">
             <p className="App-intro">Des gens sympas</p>
-            <ul>{actors.map((actor, index) => <li key={index}>{actor}</li>)}</ul>
+            <ul>
+                {actors.map((actor, index) => (
+                    <li key={index}>{actor}</li>
+                ))}
+            </ul>
         </div>
     );
 };

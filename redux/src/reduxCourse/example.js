@@ -19,7 +19,7 @@ const reducer = (state = 0, action) => {
     }
 };
 
-const Counter = (props) => (
+const Counter = props => (
     <form className="pure-form example">
         <span className="counter">{props.counter}</span>
         <button type="button">Increment</button>
@@ -28,10 +28,7 @@ const Counter = (props) => (
 );
 
 const renderApp = () => {
-    ReactDOM.render(
-        <Counter counter={0} />,
-        document.getElementById('root'),
-    );
+    ReactDOM.render(<Counter counter={0} />, document.getElementById('root'));
 };
 
 renderApp();

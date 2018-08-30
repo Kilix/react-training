@@ -10,8 +10,6 @@ import React from 'react';
 
 const connect = BaseComponent => {
     return class Connect extends React.Component {
-        render() {
-
-        }
+        render() {}
     };
 };

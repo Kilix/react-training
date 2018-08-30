@@ -38,9 +38,7 @@ class ArtistRow extends Component {
                 <td className="artist-row__name" onClick={this.openArtistCard}>
                     {artist.name}
                 </td>
-                <td>
-                    {formatNumberToString(artist.playcount)}
-                </td>
+                <td>{formatNumberToString(artist.playcount)}</td>
                 <td>
                     <a href={artist.url} target="_blank">
                         {artist.url}
@@ -51,5 +49,8 @@ class ArtistRow extends Component {
     }
 }
 
-const enhance = connect(mapStateToArtistRowProps, mapDispatchToArtistRowProps);
+const enhance = connect(
+    mapStateToArtistRowProps,
+    mapDispatchToArtistRowProps
+);
 export default enhance(ArtistRow);

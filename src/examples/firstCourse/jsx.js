@@ -11,7 +11,11 @@ const List = ({items}) => (
     <div>
         {items.length > 0 && <div>List:</div>}
         {items.length > 0 ? (
-            <ul>{items.map((item, index) => <li key={index}>{item}</li>)}</ul>
+            <ul>
+                {items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+            </ul>
         ) : (
             'It is empty!'
         )}

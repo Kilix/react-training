@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import './functionAsChild.css';
 
@@ -11,12 +11,12 @@ class SimpleList extends Component {
 
     render() {
         const {elements, children} = this.props;
-        return(
+        return (
             <div className="simple-list">
                 {elements.map((element, index) => children(element, index))}
             </div>
         );
-    };
+    }
 }
 class Parent extends Component {
     render() {
@@ -24,7 +24,10 @@ class Parent extends Component {
             <SimpleList elements={['apple', 'peach', 'grapes']}>
                 {(fruit, index) => (
                     <div key={fruit}>
-                        <div>Fruit n°{index + 1}:</div>
+                        <div>
+                            Fruit n°
+                            {index + 1}:
+                        </div>
                         <div>{fruit}</div>
                     </div>
                 )}
@@ -33,7 +36,4 @@ class Parent extends Component {
     }
 }
 
-ReactDOM.render(
-    <Parent />,
-    document.getElementById('root'),
-)
+ReactDOM.render(<Parent />, document.getElementById('root'));

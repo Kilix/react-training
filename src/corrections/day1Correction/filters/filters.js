@@ -12,18 +12,20 @@ const filtersPropTypes = {
     selectedKeyword: PropTypes.string,
 };
 
-const Filters = ({keywords, selectedKeyword, selectKeyword}) =>
+const Filters = ({keywords, selectedKeyword, selectKeyword}) => (
     <div className="filters">
         <InlineList elements={keywords}>
-            {(keyword, index) =>
+            {(keyword, index) => (
                 <FilterItem
                     key={index}
                     value={keyword}
                     selected={selectedKeyword === keyword}
                     selectItem={selectKeyword}
-                />}
+                />
+            )}
         </InlineList>
-    </div>;
+    </div>
+);
 Filters.propTypes = filtersPropTypes;
 
 export default Filters;

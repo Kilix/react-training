@@ -8,5 +8,5 @@ const Buttons = ({dispatch}) => (
         <button onClick={() => dispatch(actions.increment())}>Increment</button>
         <button onClick={() => dispatch(actions.decrement())}>Decrement</button>
     </div>
-)
+);
 export default connect()(Buttons);

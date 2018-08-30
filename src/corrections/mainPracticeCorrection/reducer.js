@@ -7,7 +7,6 @@ export const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-
     switch (action.type) {
         case actions.GET_TOP_ARTISTS_SUCCESS: {
             const {
@@ -25,12 +24,15 @@ const reducer = (state = initialState, action) => {
             const {artistName} = action.payload;
             return {
                 ...state,
-                selectedArtistName: artistName
+                selectedArtistName: artistName,
             };
         }
 
         case actions.GET_ARTIST_INFO_SUCCESS: {
-            const {entities: {artist}, result} = action.payload;
+            const {
+                entities: {artist},
+                result,
+            } = action.payload;
             const {artistsMap} = state;
             return {
                 ...state,
@@ -39,8 +41,8 @@ const reducer = (state = initialState, action) => {
                     [result]: {
                         ...artistsMap[result],
                         ...artist[result],
-                    }
-                }
+                    },
+                },
             };
         }
 
