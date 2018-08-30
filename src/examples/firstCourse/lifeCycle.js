@@ -1,64 +1,94 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-class ComponentWithLifecycle extends Component {
+const fakeFetch = id => new Promise(resolve => {
+    setTimeout(() => {
+        resolve({id, name: `Id-${id}`});
+    }, 1000);
+});
+
+class Fetcher extends React.Component {
     state = {
-        renderCount: 0,
-    };
-    componentWillMount() {
-        console.log('componentWillMount');
-        this.setState({renderCount: this.state.renderCount + 1});
+        name: null,
     }
     componentDidMount() {
-        // This is where you should do side-effects
-        console.log('componentDidMount');
-        this.timer = setInterval(() => {
-            this.setState(state => ({renderCount: state.renderCount + 1}));
-        }, 3000);
+        const {id} = this.props;
+        fakeFetch(id).then(response => {
+            this.setState({
+                name: response.name,
+            });
+        });
     }
-    // componentWillReceiveProps(nextProps, nextState) {
-    //     console.log('componentWillReceiveProp');
-    //     console.log(`previous: ${this.props.parentCount}, next: ${nextProps.parentCount}`);
-    // }
-    componentWillUpdate(nextProps, nextState) {
-        console.log('componentWillUpdate');
-        console.log(`previous: ${this.state.renderCount}, next: ${nextState.renderCount}`);
-    }
-    componentWillUnmount() {
-        console.log('componentWillUnmount');
-        clearInterval(this.timer);
+    componentDidUpdate() {
+        const {id} = this.props;
+        fakeFetch(id).then(response => {
+            this.setState({
+                name: response.name,
+            });
+        });
     }
     render() {
-        console.log('rendering ComponentWithLifecycle');
+        const {id} = this.props;
         return (
             <div>
-                It has been updated {this.state.renderCount} times, parent count is{' '}
-                {this.props.parentCount}
+                <span>Fetcher {id}, name: {this.state.name}</span>
             </div>
         );
     }
 }
-class Parent extends Component {
+class UpdateOnProps extends React.Component {
     state = {
-        open: true,
-        count: 0,
-    };
-    componentWillMount() {
-        this.countTimer = setInterval(() => {
-            this.setState(state => ({count: state.count + 1}));
-        }, 5000);
-        this.openTimer = setInterval(() => {
-            this.setState(state => ({open: !state.open}));
-        }, 10000);
+        id: 0,
+    }
+    incrementId = () => {
+        this.setState(state => ({
+            id: state.id + 1,
+        }));
     }
     render() {
-        return this.state.open ? <ComponentWithLifecycle parentCount={this.state.count} /> : null;
+        return (
+            <div>
+                <button onClick={this.incrementId}>Increment id</button>
+                <Fetcher id={this.state.id} />
+            </div>
+        );
     }
 }
 
-// const App = () => (
-//     <Parent />
-// );
-const App = () => <ComponentWithLifecycle parentCount={0} />;
+ReactDOM.render(<UpdateOnProps />, document.getElementById('root'));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class ShowWindowSize extends React.Component {
+    state = {
+        width: window.innerWidth,
+    }
+    componentDidMount() {
+        window.addEventListener('resize', this.updateSize);
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateSize);
+    }
+    updateSize = () => {
+        console.log('Updating');
+        this.setState({
+            width: window.innerWidth,
+        });
+    }
+    render() {
+        return <div>Window width {this.state.width}</div>;
+    }
+}
+class WithUnMount extends React.Component {
+    state = {
+        hidden: false,
+    };
+    render() {
+        return (
+            <div>
+                <button onClick={() => this.setState(state => ({ hidden: !state.hidden}))}>Toggle</button>
+                {this.state.hidden && <ShowWindowSize />}
+            </div>
+        )
+    }
+}
+
+// ReactDOM.render(<WithUnMount/>, document.getElementById('root'));

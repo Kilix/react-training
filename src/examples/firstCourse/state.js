@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+const Element = ({clicked}) => {
+    console.log('Element renders');
+    return <div>{clicked ? 'Clicked!' : 'Not clicked!'}</div>
+}
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -15,12 +20,18 @@ class App extends React.Component {
     }
 
     render() {
+        console.log('App renders');
         return (
             <button onClick={() => this.handleClick()}>
-                {this.state.clicked ? 'Clicked!' : 'Not clicked!'}
+                <Element clicked={this.state.clicked}/>
             </button>
         );
     }
 }
+// What about unmount?
+const Parent = () => {
+    console.log('parent renders');
+    return <App/>
+}
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Parent />, document.getElementById('root'));
