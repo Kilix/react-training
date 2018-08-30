@@ -60,7 +60,9 @@ class ArtistsList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {artists.map(({name}) => <ArtistRow key={name} artistName={name} />)}
+                        {artists.map(({name}) => (
+                            <ArtistRow key={name} artistName={name} />
+                        ))}
                     </tbody>
                 </table>
             </Card>
@@ -68,6 +70,9 @@ class ArtistsList extends Component {
     }
 }
 
-const enhance = connect(mapStateToArtistsListProps, mapDispatchToArtistsListProps);
+const enhance = connect(
+    mapStateToArtistsListProps,
+    mapDispatchToArtistsListProps
+);
 
 export default enhance(ArtistsList);

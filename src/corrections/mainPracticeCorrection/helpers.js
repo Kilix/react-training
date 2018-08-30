@@ -1,4 +1,4 @@
-const formatNumberToString = (number) => Number(number).toLocaleString();
+const formatNumberToString = number => Number(number).toLocaleString();
 
 const hasTag = (musicStyle, tags) => tags.tag.find(tag => tag.name === musicStyle);
 
@@ -8,9 +8,4 @@ const getSimilarArtistsNames = similarArtists =>
 const sortArtistsByPlayCount = (firstArtist, secondArtist) =>
     secondArtist.playcount - firstArtist.playcount;
 
-export {
-    formatNumberToString,
-    getSimilarArtistsNames,
-    hasTag,
-    sortArtistsByPlayCount,
-};
+export {formatNumberToString, getSimilarArtistsNames, hasTag, sortArtistsByPlayCount};

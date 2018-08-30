@@ -11,7 +11,6 @@ import ArtistsList from './artistsList';
 import ArtistCard from './artistCard';
 
 class App extends Component {
-
     render() {
         return (
             <div className="app">
@@ -22,15 +21,11 @@ class App extends Component {
     }
 }
 
-const store = createStore(
-    reducer,
-    undefined,
-    applyMiddleware(...middlewares),
-);
+const store = createStore(reducer, undefined, applyMiddleware(...middlewares));
 
 ReactDOM.render(
     <Provider store={store}>
         <App />
     </Provider>,
-    document.getElementById('root'),
+    document.getElementById('root')
 );

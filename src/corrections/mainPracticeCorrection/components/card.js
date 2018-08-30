@@ -6,9 +6,7 @@ import getContextTheme from './getContextTheme';
 
 const Card = ({children, header, theme}) => (
     <div className={cx('card', `card--${theme}`)}>
-        <div className="card__header">
-            {header}
-        </div>
+        <div className="card__header">{header}</div>
         {children}
     </div>
 );

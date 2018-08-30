@@ -9,9 +9,7 @@ const inlineListPropTypes = {
 };
 
 const InlineList = ({elements, children}) => (
-    <div className="inline-list">
-        {elements.map(children)}
-    </div>
+    <div className="inline-list">{elements.map(children)}</div>
 );
 InlineList.propTypes = inlineListPropTypes;
 

@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Counter from './counter'
-import Buttons from './buttons'
+import Counter from './counter';
+import Buttons from './buttons';
 
 const App = () => (
     <div>
-         <Counter />
-         <Buttons />
+        <Counter />
+        <Buttons />
     </div>
-)
+);
 export default App;

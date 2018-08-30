@@ -7,9 +7,7 @@ const keywordPropTypes = {
     keyword: PropTypes.string.isRequired,
 };
 
-const Keyword = ({keyword}) => (
-    <span className="keyword">{keyword}</span>
-);
+const Keyword = ({keyword}) => <span className="keyword">{keyword}</span>;
 Keyword.propTypes = keywordPropTypes;
 
 export default Keyword;

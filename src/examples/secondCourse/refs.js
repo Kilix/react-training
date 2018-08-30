@@ -4,19 +4,18 @@ import ReactDOM from 'react-dom';
 class ComponentWithChildRef extends Component {
     focus = () => {
         this.textInput.focus();
-    }
+    };
 
     render() {
         return (
             <div>
                 <input
                     type="text"
-                    ref={(input) => { this.textInput = input; }}
+                    ref={input => {
+                        this.textInput = input;
+                    }}
                 />
-                <button
-                    type="button"
-                    onClick={this.focus}
-                >
+                <button type="button" onClick={this.focus}>
                     Focus the text input
                 </button>
             </div>
@@ -24,7 +23,4 @@ class ComponentWithChildRef extends Component {
     }
 }
 
-ReactDOM.render(
-    <ComponentWithChildRef />,
-    document.getElementById('root'),
-)
+ReactDOM.render(<ComponentWithChildRef />, document.getElementById('root'));

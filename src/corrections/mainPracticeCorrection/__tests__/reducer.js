@@ -3,10 +3,7 @@ import {normalizeTopArtists} from '../schemas';
 import * as actions from '../actions';
 
 describe('GET_TOP_ARTISTS_SUCCESS', () => {
-    const topArtists = normalizeTopArtists([
-        {name: 'Mick'},
-        {name: 'Keith'},
-    ]);
+    const topArtists = normalizeTopArtists([{name: 'Mick'}, {name: 'Keith'}]);
     const state = reducer(undefined, {
         type: actions.GET_TOP_ARTISTS_SUCCESS,
         payload: topArtists,
@@ -14,7 +11,7 @@ describe('GET_TOP_ARTISTS_SUCCESS', () => {
     it('should normalize the artists', () => {
         expect(state.artistsMap).toEqual({
             Mick: {name: 'Mick'},
-            Keith: {name: 'Keith'}
+            Keith: {name: 'Keith'},
         });
     });
     it('should store the results', () => {
@@ -37,22 +34,22 @@ describe('GET_ARTIST_INFO_SUCCESS', () => {
             result: 'John',
             entities: {
                 artist: {
-                    'John': {
+                    John: {
                         name: 'John',
                         playCount: 1000,
-                    }
-                }
-            }
-        }
+                    },
+                },
+            },
+        },
     };
     const prevState = {
         artistsMap: {
-            'John': {
+            John: {
                 name: 'John',
                 age: 40,
             },
         },
-    }
+    };
     const state = reducer(prevState, action);
     it('should merge the artist in the map', () => {
         expect(state.artistsMap.John).toEqual({

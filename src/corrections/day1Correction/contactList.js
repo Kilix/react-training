@@ -11,7 +11,9 @@ const contactListPropTypes = {
 
 const ContactList = ({list}) => (
     <div className="list">
-        {list.map(contact => <Contact key={contact.id} contact={contact} />)}
+        {list.map(contact => (
+            <Contact key={contact.id} contact={contact} />
+        ))}
     </div>
 );
 ContactList.propTypes = contactListPropTypes;

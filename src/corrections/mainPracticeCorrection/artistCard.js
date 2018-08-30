@@ -67,25 +67,27 @@ class ArtistCard extends Component {
                                 Play count:{' '}
                                 {artist.stats && formatNumberToString(artist.stats.playcount)}
                             </div>
-                            {artist.bio &&
-                                <div dangerouslySetInnerHTML={{__html: artist.bio.summary}} />}
+                            {artist.bio && (
+                                <div dangerouslySetInnerHTML={{__html: artist.bio.summary}} />
+                            )}
                             <div className="artist-card__tags">
                                 {artist.tags &&
-                                    artist.tags.tag.map(tag =>
+                                    artist.tags.tag.map(tag => (
                                         <Tag key={tag.name} name={tag.name} />
-                                    )}
+                                    ))}
                             </div>
                         </div>
                     </div>
-                    <div>
-                        Similar Artists: {similarArtists}
-                    </div>
+                    <div>Similar Artists: {similarArtists}</div>
                 </div>
             </Card>
         );
     }
 }
 
-const enhance = connect(mapStateToArtistCardProps, mapDispatchToArtistCardProps);
+const enhance = connect(
+    mapStateToArtistCardProps,
+    mapDispatchToArtistCardProps
+);
 
 export default enhance(ArtistCard);

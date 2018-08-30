@@ -19,7 +19,9 @@ class List extends Component {
     render() {
         return (
             <div>
-                {['apple', 'orange', 'peach'].map(fruit => <Fruit key={fruit} name={fruit} />)}
+                {['apple', 'orange', 'peach'].map(fruit => (
+                    <Fruit key={fruit} name={fruit} />
+                ))}
             </div>
         );
     }

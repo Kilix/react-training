@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 const getContextTheme = BaseComponent => {
     return class GetContextTheme extends Component {
-
         static displayName = `${BaseComponent.name}GetContextTheme`;
 
         static contextTypes = {
@@ -17,11 +16,7 @@ const getContextTheme = BaseComponent => {
                 ...this.props,
             };
 
-            return (
-                <BaseComponent
-                    {...baseProps}
-                />
-            );
+            return <BaseComponent {...baseProps} />;
         }
     };
 };
