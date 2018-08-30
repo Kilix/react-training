@@ -1,0 +1,8 @@
+{
+  "printWidth": 100,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "parser": "flow",
+  "bracketSpacing": false,
+  "tabWidth": 4
+}
