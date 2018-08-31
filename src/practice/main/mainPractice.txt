@@ -1,35 +1,23 @@
-http://www.last.fm/fr/api
+Fixes
+Le sort ne fonctionne pas
+Un bug d'event enregistré
 
-ETAPE 1
-Récupérer la liste du top artistes et l'afficher. Pour chaque artiste, afficher :
-    - son image (la première du tableau)
-    - son nom
-    - son play count
-    - son lien last.fm
+TODO carte de visu d'un artiste
 
-ETAPE 2
-Ajouter un bouton qui permet de trier la liste par play count.
-Le bouton doit être recliquable pour enlever le tri sur la liste.
+TODO
+Fetch component
+- lifecycle
+- function as a child
 
-ETAPE 3
-Au clic sur le nom d'un artiste, get & visualisation de ses infos au dessus de la liste.
+Theme in the context
 
-Dans la carte :
-    - Image 2 de l'artiste
-    - Summary de sa bio
-    - Mots-clés
-    - Artistes similaires
+Style:
+- something on hover of artist name
 
-ETAPE 4
-La carte d'un artiste change de thème en fonction des tags de l'artiste :
-    - Si il a le tag 'rock' (comme Radiohead, Coldplay ...), le thème devient 'rock' (violet)
-    - Si il a le tag 'rnb' (comme The Weeknd, Rihanna ...), le thème devient 'rnb' (orange)
+Note some artists as favourite
+- Un compteur
+- Filtrer avec juste les favoris
 
-ETAPES BONUS
-    -   Utiliser du routing : au clic sur le nom d'un artiste dans la liste, sa carte n'apparaît plus
-        simplement au-dessus de la liste, c'est une nouvelle page.
-        https://github.com/ReactTraining/react-router
-
-    -   Typer l'application grace à Flow
-        https://flowtype.org/
-        http://slides.com/augustinlf/flow-type#/
+Formulaire
+Recherche par tag (via un input)
+Click sur un bouton recherche -> fait apparaitre un input, qui prend le focus

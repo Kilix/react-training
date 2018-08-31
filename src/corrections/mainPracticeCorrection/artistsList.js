@@ -21,9 +21,9 @@ class ArtistsList extends Component {
         getTopArtistsPromise().then(artists => this.setState(() => ({artistsList: artists})));
     }
 
-    sortByPlayCount = () => {
+    sortByPlayCount() {
         this.setState({sorted: !this.state.sorted});
-    };
+    }
 
     render() {
         const {openArtistCard} = this.props;
