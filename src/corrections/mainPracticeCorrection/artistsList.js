@@ -1,34 +1,24 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import PropTypes from 'prop-types';
 import R from 'ramda';
+import PropTypes from 'prop-types';
 
-import {getTopArtistsWithInfo} from './selectors';
+import {getTopArtistsPromise} from '../../practice/main/libs/actionsHelpers';
 import {sortArtistsByPlayCount} from './helpers';
 import Card from './components/card';
 import ArtistRow from './artistRow';
-import * as actions from './actions';
-
-const mapStateToArtistsListProps = state => ({
-    artistsList: getTopArtistsWithInfo(state),
-});
-const mapDispatchToArtistsListProps = {
-    getTopArtists: actions.getTopArtists,
-};
 
 class ArtistsList extends Component {
     static propTypes = {
-        artistsList: PropTypes.array.isRequired,
-        getTopArtists: PropTypes.func.isRequired,
+        openArtistCard: PropTypes.func.isRequired,
     };
 
     state = {
+        artistsList: [],
         sorted: false,
     };
 
-    componentWillMount() {
-        this.props.getTopArtists();
+    componentDidMount() {
+        getTopArtistsPromise().then(artists => this.setState(() => ({artistsList: artists})));
     }
 
     sortByPlayCount = () => {
@@ -36,8 +26,8 @@ class ArtistsList extends Component {
     };
 
     render() {
-        const {artistsList} = this.props;
-        const {sorted} = this.state;
+        const {openArtistCard} = this.props;
+        const {artistsList, sorted} = this.state;
         const sortMsg = sorted ? 'Remove sorting' : 'Sort by play count';
         const artists = sorted ? R.sort(sortArtistsByPlayCount, artistsList) : artistsList;
 
@@ -60,8 +50,12 @@ class ArtistsList extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        {artists.map(({name}) => (
-                            <ArtistRow key={name} artistName={name} />
+                        {artists.map(artist => (
+                            <ArtistRow
+                                key={artist.name}
+                                artist={artist}
+                                openArtistCard={openArtistCard}
+                            />
                         ))}
                     </tbody>
                 </table>
@@ -70,9 +64,4 @@ class ArtistsList extends Component {
     }
 }
 
-const enhance = connect(
-    mapStateToArtistsListProps,
-    mapDispatchToArtistsListProps
-);
-
-export default enhance(ArtistsList);
+export default ArtistsList;

@@ -2,30 +2,26 @@ import '../../practice/main/style.css';
 
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {applyMiddleware, createStore} from 'redux';
 
-import {middlewares} from './libs/middlewares';
-import reducer from './reducer';
 import ArtistsList from './artistsList';
 import ArtistCard from './artistCard';
 
 class App extends Component {
+    state = {openedCard: null};
+
+    openArtistCard = artistName => {
+        this.setState(() => ({openedCard: artistName}));
+    };
+
     render() {
+        const {openedCard} = this.state;
         return (
             <div className="app">
-                <ArtistCard />
-                <ArtistsList />
+                <ArtistCard artistName={openedCard} />
+                <ArtistsList openArtistCard={this.openArtistCard} />
             </div>
         );
     }
 }
 
-const store = createStore(reducer, undefined, applyMiddleware(...middlewares));
-
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));

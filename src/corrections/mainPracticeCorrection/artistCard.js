@@ -1,28 +1,17 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
 
+import {getArtistInfoPromise} from '../../practice/main/libs/actionsHelpers';
 import Card from './components/card';
 import {formatNumberToString, hasTag, getSimilarArtistsNames} from './helpers';
-import {getSelectedArtist, getSelectedArtistName} from './selectors';
 import Tag from './tag';
-import * as actions from './actions';
-
-const mapStateToArtistCardProps = state => ({
-    artist: getSelectedArtist(state),
-    selectedArtistName: getSelectedArtistName(state),
-});
-const mapDispatchToArtistCardProps = {
-    getArtistInfo: actions.getArtistInfo,
-};
 
 class ArtistCard extends Component {
     static propTypes = {
-        artist: PropTypes.object,
-        selectedArtistName: PropTypes.string,
-        getArtistInfo: PropTypes.func.isRequired,
+        artistName: PropTypes.string,
     };
+
+    state = {artist: null};
 
     getChildContext() {
         const {artist} = this.props;
@@ -41,14 +30,15 @@ class ArtistCard extends Component {
     };
 
     componentWillReceiveProps(nextProps) {
-        const {selectedArtistName, getArtistInfo} = nextProps;
+        const {artistName} = nextProps;
 
-        if (selectedArtistName && this.props.selectedArtistName !== selectedArtistName)
-            getArtistInfo(selectedArtistName);
+        if (artistName && this.props.artistName !== artistName)
+            getArtistInfoPromise(artistName).then(artist => this.setState(() => ({artist})));
     }
 
     render() {
-        const {artist, selectedArtistName} = this.props;
+        const {artistName} = this.props;
+        const {artist} = this.state;
 
         if (!artist) return null;
 
@@ -56,7 +46,7 @@ class ArtistCard extends Component {
         const similarArtists = artist.similar && getSimilarArtistsNames(artist.similar);
 
         return (
-            <Card header={selectedArtistName}>
+            <Card header={artistName}>
                 <div className="artist-card">
                     <div className="artist-card__main">
                         <a href={artist.url} target="_blank">
@@ -85,9 +75,4 @@ class ArtistCard extends Component {
     }
 }
 
-const enhance = connect(
-    mapStateToArtistCardProps,
-    mapDispatchToArtistCardProps
-);
-
-export default enhance(ArtistCard);
+export default ArtistCard;
