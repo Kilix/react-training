@@ -145,36 +145,19 @@ export default class Presentation extends React.Component {
 
                 <Slide transition={['fade']} bgColor="primary" textColor="secondary">
                     <Heading size={6} caps>
-                        Reconciliation
-                    </Heading>
-                    <Text size={6}>
-                        On each render, React tries to limit the amount of changes to the DOM
-                    </Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        Higher Order Components
-                    </Heading>
-                    <Text>A function that takes a Component and returns a new one</Text>
-                    <Text>It's just a wrapper around a component</Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        Function as a child component
-                    </Heading>
-                    <Text>children is nothing but a normal prop</Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
-                        Context
+                        Events
                     </Heading>
                     <Text>
-                        A way to pass data from an upper to a lower one, without having to do it
-                        through each children of the hierarchy
+                        React events are pretty close from the DOM ones, with a bit of cross-browser
+                        normalization and the fact that they are pooled.
                     </Text>
+                </Slide>
+
+                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+                    <Heading size={6} caps>
+                        Forms
+                    </Heading>
+                    <Text>In React, the common way to use form elements is to control them.</Text>
                 </Slide>
 
                 <Slide transition={['fade']} bgColor="primary" textColor="secondary">
@@ -189,12 +172,38 @@ export default class Presentation extends React.Component {
 
                 <Slide transition={['fade']} bgColor="primary" textColor="secondary">
                     <Heading size={6} caps>
-                        Events
+                        Function as a child component
+                    </Heading>
+                    <Text>children is nothing but a normal prop</Text>
+                </Slide>
+
+                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+                    <Heading size={6} caps>
+                        Higher Order Components
+                    </Heading>
+                    <Text>A function that takes a Component and returns a new one</Text>
+                    <Text>It's just a wrapper around a component</Text>
+                </Slide>
+
+                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+                    <Heading size={6} caps>
+                        Context
                     </Heading>
                     <Text>
-                        React events are pretty close from the DOM ones, with a bit of cross-browser
-                        normalization and the fact that they are pooled.
+                        A way to pass data from an upper to a lower one, without having to do it
+                        through each children of the hierarchy
                     </Text>
+                </Slide>
+
+                <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
+                    <Heading size={6} textColor="secondary" caps>
+                        Context API
+                    </Heading>
+                    <CodePane
+                        lang="jsx"
+                        source={require('raw-loader!./context')}
+                        margin="20px auto"
+                    />
                 </Slide>
 
                 <Slide transition={['fade']} bgColor="secondary" textColor="primary">

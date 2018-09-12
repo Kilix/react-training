@@ -1,0 +1,83 @@
+NB: A lot of the content of this file is taken from the official react docs, see the links before
+each paragraphs
+
+
+EVENTS
+https://facebook.github.io/react/docs/events.html
+In REACT, event handlers will be passed instances of SyntheticEvent, a cross-browser wrapper around
+the browser's native event.
+It has the same interface as the browser's native event, including stopPropagation() and preventDefault(),
+except the events work identically across all browsers.
+If you need the underlying browser event for some reason, you can use the nativeEvent attribute to get it.
+The SyntheticEvent is pooled. This means that the SyntheticEvent object will be reused and all properties
+will be nullified after the event callback has been invoked. This is for performance reasons.
+As such, you cannot access the event in an asynchronous way.
+If you want to access the event in an asynchronous way, you must copy desired attributes into a variable.
+
+
+
+FORMS
+https://reactjs.org/docs/forms.html
+If you want the default HTML form behavior in React, it just works. But in most cases, it’s convenient to have a JavaScript function that
+handles the submission of the form and has access to the data that the user entered into the form (for data validations for instance).
+The standard way to achieve this is with a technique called “controlled components”.
+
+An input form element whose value is controlled by React is called a “controlled component”.
+
+Since the value attribute is set on our form element, the displayed value will always be this.state.value, making the React state the source of truth.
+Since handleChange runs on every keystroke to update the React state, the displayed value will update as the user types.
+
+
+
+REFS
+https://facebook.github.io/react/docs/refs-and-the-dom.html
+In the typical React dataflow, props are the only way that parent components interact with their children.
+To modify a child, you re-render it with new props.
+However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow.
+
+React supports a special attribute that you can attach to any component: ref.
+The ref attribute takes a callback function, and the callback will be executed immediately after
+the component is mounted or unmounted.
+
+When the ref attribute is used on an HTML element, the ref callback receives the underlying DOM element
+as its argument when the component mounts, null when its unmounts.
+When the ref attribute is used on a custom component declared as a class, the ref callback receives
+the mounted instance of the component as its argument on mounting, null on unmounting.
+Cannot be used on functional components (which have no instance).
+
+The few cases for using refs are:
+    - Managing focus, text selection, or media playback.
+    - Triggering imperative animations.
+    - Integrating with third-party DOM libraries.
+Avoid using refs for anything that can be done declaratively.
+
+
+
+FUNCTION AS CHILD COMPONENT
+https://medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9#.mayuaur98
+You can pass to components a function as children. With it, we decouple the parent and child component
+(only the composer knows how to apply parameters passed to the child component, the direct parent doesn't know)
+With function as child component, there is no props name collision as there may be with decorators
+(HOC pass named props, that could overwrite existing props).
+
+
+
+HIGHER-ORDER COMPONENTS
+https://facebook.github.io/react/docs/higher-order-components.html
+It allows to reuse component logic simply, in several components.
+An HOC is a function that takes a component and returns a new component with additional props.
+HOC is a compensation for the fact that we don't use inheritance in React.
+
+An HOC doesn't modify the input component, nor does it use inheritance to copy its behavior.
+Rather, an HOC composes the original component by wrapping it in a container component.
+An HOC is a pure function with zero side-effects.
+
+
+
+CONTEXT
+https://reactjs.org/docs/context.html
+Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+In a typical React application, data is passed top-down (parent to child) via props, but this can be cumbersome for certain types of props
+(e.g. locale preference, UI theme) that are required by many components within an application.
+Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
