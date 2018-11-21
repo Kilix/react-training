@@ -1,7 +1,7 @@
 import './index.css';
 import 'purecss/build/pure.css';
 
-// import './examples/intro/intro';
+import './examples/intro/intro';
 
 // JSX
 // import './examples/firstCourse/jsx';
@@ -30,4 +30,4 @@ import 'purecss/build/pure.css';
 
 // Main practice
 // import './practice/main/app';
-import './corrections/mainPracticeCorrection/app';
+// import './corrections/mainPracticeCorrection/app';
