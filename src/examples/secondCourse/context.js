@@ -1,11 +1,8 @@
-// Classic context for Fruit color
-// => HOC
 import PropTypes from 'prop-types';
-
-import React, {Component} from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-class Fruit extends Component {
+class Fruit extends React.Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
     };
@@ -15,7 +12,7 @@ class Fruit extends Component {
         return <div>{name}</div>;
     }
 }
-class List extends Component {
+class List extends React.Component {
     render() {
         return (
             <div>
@@ -26,7 +23,7 @@ class List extends Component {
         );
     }
 }
-class Parent extends Component {
+class Parent extends React.Component {
     render() {
         return <List />;
     }

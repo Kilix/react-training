@@ -3,7 +3,7 @@ import 'purecss/build/pure.css';
 
 import './examples/intro/intro';
 
-// JSX
+/* JSX */
 // import './examples/firstCourse/jsx';
 // import './examples/firstCourse/composition';
 // import './examples/firstCourse/style';
@@ -11,7 +11,7 @@ import './examples/intro/intro';
 // import './practice/intro/app';
 // import './corrections/intro/app';
 
-// Components
+/* Components */
 // import './examples/firstCourse/propTypesDefaultProps';
 // import './examples/firstCourse/children';
 // import './examples/firstCourse/state';
@@ -20,14 +20,21 @@ import './examples/intro/intro';
 // import './practice/day1/app';
 // import './corrections/day1Correction/app';
 
-// Second Course
-// import './examples/secondCourse/reconciliation';
-// import './examples/secondCourse/hoc';
-// import './examples/secondCourse/context';
-// import './examples/secondCourse/functionAsChild';
-// import './examples/secondCourse/refs';
+/* Further with React */
 // import './examples/secondCourse/events';
+// import './examples/secondCourse/refs';
+// import './examples/secondCourse/hoc';
+// import './examples/secondCourse/functionAsChild';
+// import './examples/secondCourse/context';
 
-// Main practice
+/* Further with React Practices */
+// import './practice/furtherWithReact/events';
+// import './practice/furtherWithReact/forms';
+// import './practice/furtherWithReact/refs';
+// import './practice/furtherWithReact/hoc';
+// import './practice/furtherWithReact/functionAsChild';
+// import './practice/furtherWithReact/context';
+
+/* Main practice */
 // import './practice/main/app';
 // import './corrections/mainPracticeCorrection/app';

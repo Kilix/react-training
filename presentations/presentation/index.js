@@ -172,17 +172,17 @@ export default class Presentation extends React.Component {
 
                 <Slide transition={['fade']} bgColor="primary" textColor="secondary">
                     <Heading size={6} caps>
-                        Function as a child component
-                    </Heading>
-                    <Text>children is nothing but a normal prop</Text>
-                </Slide>
-
-                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
-                    <Heading size={6} caps>
                         Higher Order Components
                     </Heading>
                     <Text>A function that takes a Component and returns a new one</Text>
                     <Text>It's just a wrapper around a component</Text>
+                </Slide>
+
+                <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+                    <Heading size={6} caps>
+                        Function as a child component
+                    </Heading>
+                    <Text>children is nothing but a normal prop</Text>
                 </Slide>
 
                 <Slide transition={['fade']} bgColor="primary" textColor="secondary">
