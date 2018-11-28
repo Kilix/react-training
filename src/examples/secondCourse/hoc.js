@@ -17,8 +17,9 @@ const withWindowSize = WrappedComponent =>
 
         update = () => {
             const {large} = this.state;
+            const largeActualWidth = window.innerWidth > 1025;
 
-            if (window.innerWidth > 1025 !== large) this.setState({large: !large});
+            if (largeActualWidth !== large) this.setState({large: !large});
         };
 
         render() {

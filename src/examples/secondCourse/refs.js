@@ -1,20 +1,20 @@
-import React, {Component} from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-class ComponentWithChildRef extends Component {
+class ComponentWithRef extends React.Component {
+    constructor(props) {
+        super(props);
+        this.textInput = React.createRef();
+    }
+
     focus = () => {
-        this.textInput.focus();
+        this.textInput.current.focus();
     };
 
     render() {
         return (
             <div>
-                <input
-                    type="text"
-                    ref={input => {
-                        this.textInput = input;
-                    }}
-                />
+                <input type="text" ref={this.textInput} />
                 <button type="button" onClick={this.focus}>
                     Focus the text input
                 </button>
@@ -23,4 +23,4 @@ class ComponentWithChildRef extends Component {
     }
 }
 
-ReactDOM.render(<ComponentWithChildRef />, document.getElementById('root'));
+ReactDOM.render(<ComponentWithRef />, document.getElementById('root'));

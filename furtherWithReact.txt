@@ -53,15 +53,6 @@ Avoid using refs for anything that can be done declaratively.
 
 
 
-FUNCTION AS CHILD COMPONENT
-https://medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9#.mayuaur98
-You can pass to components a function as children. With it, we decouple the parent and child component
-(only the composer knows how to apply parameters passed to the child component, the direct parent doesn't know)
-With function as child component, there is no props name collision as there may be with decorators
-(HOC pass named props, that could overwrite existing props).
-
-
-
 HIGHER-ORDER COMPONENTS
 https://facebook.github.io/react/docs/higher-order-components.html
 It allows to reuse component logic simply, in several components.
@@ -72,6 +63,14 @@ An HOC doesn't modify the input component, nor does it use inheritance to copy i
 Rather, an HOC composes the original component by wrapping it in a container component.
 An HOC is a pure function with zero side-effects.
 
+
+
+FUNCTION AS CHILD COMPONENT
+https://medium.com/merrickchristensen/function-as-child-components-5f3920a9ace9#.mayuaur98
+You can pass to components a function as children. With it, we decouple the parent and child component
+(only the composer knows how to apply parameters passed to the child component, the direct parent doesn't know)
+With function as child component, there is no props name collision as there may be with decorators
+(HOC pass named props, that could overwrite existing props).
 
 
 CONTEXT
