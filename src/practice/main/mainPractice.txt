@@ -1,23 +1,25 @@
-Fixes
-Le sort ne fonctionne pas
-Un bug d'event enregistré
+Vous arrivez sur une feature développée par quelqu'un d'autre : une liste des top artistes.
 
-TODO carte de visu d'un artiste
+Il va falloir corriger l'existant :
+    - le "sort by play count" ne fonctionne pas
 
-TODO
-Fetch component
-- lifecycle
-- function as a child
+Et développer de nouvelles fonctionnalités :
 
-Theme in the context
+1. Visualiser le détail d'un artiste
+    Au clic sur le nom d'un artiste, on veut afficher le détail de cet artiste dans une carte au-dessus de la liste
+    (sa bio, les artistes similaires, les tags, lien vers lastFM...).
 
-Style:
-- something on hover of artist name
+2. FetchComponent
+    On veut gérer les calls API de façon générique : créer un "FetchComponent" qui les gère.
+    Il a une function as child.
 
-Note some artists as favourite
-- Un compteur
-- Filtrer avec juste les favoris
+3. Theme
+    Avoir un thème dans le contexte, différent sur la liste et la carte d'un artiste qui change la couleur des liens.
 
-Formulaire
-Recherche par tag (via un input)
-Click sur un bouton recherche -> fait apparaitre un input, qui prend le focus
+4. Favoris
+    - Pouvoir noter des artistes en "favoris"
+    - Afficher un compteur de ces "favoris"
+    - Pouvoir filtrer la liste : possibilité de n'afficher que les artistes favoris
+
+5. Rechercher un artiste
+    Au clic sur un bouton, faire apparaître un champs auto-focus qui va permettre de filtrer la liste

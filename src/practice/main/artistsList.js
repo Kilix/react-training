@@ -1,16 +1,11 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 
 import {getTopArtistsPromise} from '../../practice/main/libs/actionsHelpers';
 import {sortArtistsByPlayCount} from './helpers';
 import Card from './components/card';
 import ArtistRow from './artistRow';
 
-class ArtistsList extends React.Component {
-    static propTypes = {
-        openArtistCard: PropTypes.func.isRequired,
-    };
-
+class ArtistsList extends Component {
     state = {
         artistsList: [],
         sorted: false,
@@ -20,15 +15,14 @@ class ArtistsList extends React.Component {
         getTopArtistsPromise().then(artists => this.setState(() => ({artistsList: artists})));
     }
 
-    sortByPlayCount = () => {
+    sortByPlayCount() {
         this.setState(() => ({sorted: !this.state.sorted}));
-    };
+    }
 
     render() {
-        const {openArtistCard} = this.props;
         const {artistsList, sorted} = this.state;
         const sortMsg = sorted ? 'Remove sorting' : 'Sort by play count';
-        const artists = sorted ? [...artistsList].sort(sortArtistsByPlayCount) : artistsList;
+        const artists = sorted ? artistsList.sort(sortArtistsByPlayCount) : artistsList;
 
         const header = (
             <div>
@@ -50,11 +44,7 @@ class ArtistsList extends React.Component {
                     </thead>
                     <tbody>
                         {artists.map(artist => (
-                            <ArtistRow
-                                key={artist.name}
-                                artist={artist}
-                                openArtistCard={openArtistCard}
-                            />
+                            <ArtistRow key={artist.name} artist={artist} />
                         ))}
                     </tbody>
                 </table>
