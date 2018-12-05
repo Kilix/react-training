@@ -16,7 +16,7 @@ class ArtistsList extends Component {
     }
 
     sortByPlayCount() {
-        this.setState(() => ({sorted: !this.state.sorted}));
+        this.setState(prevState => ({sorted: !prevState.sorted}));
     }
 
     render() {

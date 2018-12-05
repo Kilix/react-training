@@ -2,19 +2,21 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import cx from 'classnames';
 
-import getContextTheme from './getContextTheme';
+import {ThemeConsumer} from './theme';
 
 const Card = ({children, header, theme}) => (
-    <div className={cx('card', `card--${theme}`)}>
-        <div className="card__header">{header}</div>
-        {children}
-    </div>
+    <ThemeConsumer>
+        {theme => (
+            <div className={cx('card', `card--${theme}`)}>
+                <div className="card__header">{header}</div>
+                {children}
+            </div>
+        )}
+    </ThemeConsumer>
 );
 
 Card.propTypes = {
     children: PropTypes.node.isRequired,
-    header: PropTypes.node.isRequired,
-    theme: PropTypes.string.isRequired,
 };
 
-export default getContextTheme(Card);
+export default Card;

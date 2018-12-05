@@ -14,7 +14,8 @@ Et développer de nouvelles fonctionnalités :
     Il a une function as child.
 
 3. Theme
-    Avoir un thème dans le contexte, différent sur la liste et la carte d'un artiste qui change la couleur des liens.
+    Avoir un thème dans le contexte, différent sur la liste et la carte d'un artiste qui change la couleur des liens
+    et du titre des cartes.
 
 4. Favoris
     - Pouvoir noter des artistes en "favoris"
