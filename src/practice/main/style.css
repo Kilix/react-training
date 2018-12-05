@@ -24,9 +24,8 @@
     display: flex;
     justify-content: space-between;
 }
-.card--default .card__header, .card--default a {color: #2d9689;}
-.card--rnb .card__header, .card--rnb a {color: #e45a43;}
-.card--rock .card__header, .card--rock a {color: #5920a2;}
+.card--green .card__header, .card--green a {color: #2d9689;}
+.card--pink .card__header, .card--pink a {color: #FF2A9C;}
 
 table {
     width: 100%;
@@ -92,7 +91,5 @@ button {
     margin-bottom: 5px;
     font-weight: lighter;
     border-radius: 10px;
+    background-color: #FF2A9C;
 }
-.tag--default {background-color: #2d9689;}
-.tag--rnb {background-color: #e45a43;}
-.tag--rock {background-color: #5920a2;}

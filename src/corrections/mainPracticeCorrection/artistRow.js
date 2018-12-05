@@ -3,7 +3,7 @@ import React from 'react';
 
 import {formatNumberToString} from './helpers';
 
-const ArtistRow = ({artist, openArtistCard}) => {
+const ArtistRow = ({artist, changeFavorite, favorite, openArtistCard}) => {
     const openCard = () => {
         openArtistCard(artist.name);
         window.scrollTo(0, 0);
@@ -25,12 +25,21 @@ const ArtistRow = ({artist, openArtistCard}) => {
                     {artist.url}
                 </a>
             </td>
+            <td style={{textAlign: 'center'}}>
+                <input
+                    type="checkbox"
+                    onChange={e => changeFavorite(artist.name, e.target.checked)}
+                    checked={favorite}
+                />
+            </td>
         </tr>
     );
 };
 
 ArtistRow.propTypes = {
     artist: PropTypes.object.isRequired,
+    changeFavorite: PropTypes.func.isRequired,
+    favorite: PropTypes.bool.isRequired,
     openArtistCard: PropTypes.func.isRequired,
 };
 
