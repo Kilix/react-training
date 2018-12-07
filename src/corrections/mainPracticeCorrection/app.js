@@ -17,7 +17,7 @@ class App extends Component {
         const {openedCard} = this.state;
         return (
             <div className="app">
-                <ArtistCard artistName={openedCard} />
+                {openedCard && <ArtistCard artistName={openedCard} />}
                 <ArtistsList openArtistCard={this.openArtistCard} />
             </div>
         );

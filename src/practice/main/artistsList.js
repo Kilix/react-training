@@ -9,10 +9,13 @@ class ArtistsList extends Component {
     state = {
         artistsList: [],
         sorted: false,
+        loading: true,
     };
 
     componentDidMount() {
-        getTopArtistsPromise().then(artists => this.setState(() => ({artistsList: artists})));
+        getTopArtistsPromise().then(artists =>
+            this.setState(() => ({artistsList: artists, loading: false}))
+        );
     }
 
     sortByPlayCount() {
@@ -20,7 +23,8 @@ class ArtistsList extends Component {
     }
 
     render() {
-        const {artistsList, sorted} = this.state;
+        const {artistsList, sorted, loading} = this.state;
+
         const sortMsg = sorted ? 'Remove sorting' : 'Sort by play count';
         const artists = sorted ? artistsList.sort(sortArtistsByPlayCount) : artistsList;
 
@@ -33,21 +37,25 @@ class ArtistsList extends Component {
 
         return (
             <Card header={header}>
-                <table>
-                    <thead>
-                        <tr>
-                            <th />
-                            <th>Name</th>
-                            <th>Play count</th>
-                            <th>Link</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {artists.map(artist => (
-                            <ArtistRow key={artist.name} artist={artist} />
-                        ))}
-                    </tbody>
-                </table>
+                {!loading ? (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th />
+                                <th>Name</th>
+                                <th>Play count</th>
+                                <th>Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {artists.map(artist => (
+                                <ArtistRow key={artist.name} artist={artist} />
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <div>Loading</div>
+                )}
             </Card>
         );
     }

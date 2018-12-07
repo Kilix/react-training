@@ -27,6 +27,11 @@
 .card--green .card__header, .card--green a {color: #2d9689;}
 .card--pink .card__header, .card--pink a {color: #FF2A9C;}
 
+.loading {
+    text-align: center;
+    padding: 15px;
+}
+
 table {
     width: 100%;
 }
