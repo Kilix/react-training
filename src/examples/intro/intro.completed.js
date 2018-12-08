@@ -52,11 +52,8 @@ class App extends Component {
         );
     }
 }
-renderPage();
 
-function renderPage() {
-    ReactDOM.render(<App />, document.getElementById('root'));
-}
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // pass actors as props to <App />
 // add button to addHugues, that modifies actors and rerenderPage
