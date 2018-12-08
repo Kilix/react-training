@@ -62,3 +62,11 @@ this.setState
     - what if is the component is unmounted ? State is lost
     - How to listen to prop changes? See lifecycle
 lifecycle   => parent's state is kept => lift the state up
+
+
+Reconciliation
+The great thing with React is that your app is entirely rerendered all the time. You app is a tree (use whiteboard).
+When you rerender you app (or a section of the tree, with a local setState for instance)
+React tries to see if an element can simply be updated (or ignored).
+For instance, if there was a div and a component in it, now a p and the same component, the component is recreated from scratch
+Same thing with keys in list.

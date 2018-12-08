@@ -17,6 +17,8 @@ import './examples/intro/intro';
 // import './examples/firstCourse/state';
 // import './examples/firstCourse/lifeCycle';
 
+// import './examples/firstCourse/reconciliation';
+
 // import './practice/day1/app';
 // import './corrections/day1Correction/app';
 
