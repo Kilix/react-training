@@ -18,8 +18,9 @@ If you want to access the event in an asynchronous way, you must copy desired at
 
 FORMS
 https://reactjs.org/docs/forms.html
-If you want the default HTML form behavior in React, it just works. But in most cases, it’s convenient to have a JavaScript function that
-handles the submission of the form and has access to the data that the user entered into the form (for data validations for instance).
+If you want the default HTML form behavior in React, it just works.
+But in most cases, it’s convenient to have a JavaScript function that handles the submission of the form
+and has access to the data that the user entered into the form (for data validations for instance).
 The standard way to achieve this is with a technique called “controlled components”.
 
 An input form element whose value is controlled by React is called a “controlled component”.
@@ -36,13 +37,12 @@ To modify a child, you re-render it with new props.
 However, there are a few cases where you need to imperatively modify a child outside of the typical dataflow.
 
 React supports a special attribute that you can attach to any component: ref.
-The ref attribute takes a callback function, and the callback will be executed immediately after
-the component is mounted or unmounted.
+React will assign the current property with the DOM element when the component mounts, and assign it back to null
+when it unmounts. ref updates happen before componentDidMount or componentDidUpdate lifecycle methods.
 
-When the ref attribute is used on an HTML element, the ref callback receives the underlying DOM element
-as its argument when the component mounts, null when its unmounts.
-When the ref attribute is used on a custom component declared as a class, the ref callback receives
-the mounted instance of the component as its argument on mounting, null on unmounting.
+When the ref attribute is used on an HTML element, the ref created in the constructor with React.createRef()
+receives the underlying DOM element as its current property.
+When the ref attribute is used on a custom class component, the ref object receives the mounted instance of the component as its current.
 Cannot be used on functional components (which have no instance).
 
 The few cases for using refs are:
