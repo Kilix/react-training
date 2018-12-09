@@ -34,11 +34,13 @@ class List extends Component {
     };
 
     render() {
-        const {elements} = this.props;
+        const {elements, large} = this.props;
         return (
             <div>
                 {elements.map(element => (
-                    <div key={element}>{element}</div>
+                    <div key={element} style={{textTransform: large ? 'uppercase' : 'capitalize'}}>
+                        {element}
+                    </div>
                 ))}
             </div>
         );

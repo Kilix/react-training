@@ -2,7 +2,7 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 /* TODO
- * - Le theme de la page a pour couleur bleu et borderRadius: 5px
+ * - Le theme de la page a pour couleur bleu et borderRadius: 10px
  * - La carte a un thème à elle : couleur violette et borderRadius: 0
  */
 

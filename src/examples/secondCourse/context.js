@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-import * as React from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+
+const ThemeContext = React.createContext('');
 
 class Fruit extends React.Component {
     static propTypes = {
@@ -9,9 +11,14 @@ class Fruit extends React.Component {
 
     render() {
         const {name} = this.props;
-        return <div>{name}</div>;
+        return (
+            <ThemeContext.Consumer>
+                {color => <div style={{color}}>{name}</div>}
+            </ThemeContext.Consumer>
+        );
     }
 }
+
 class List extends React.Component {
     render() {
         return (
@@ -23,10 +30,11 @@ class List extends React.Component {
         );
     }
 }
-class Parent extends React.Component {
-    render() {
-        return <List />;
-    }
-}
+
+const Parent = () => (
+    <ThemeContext.Provider value="green">
+        <List />
+    </ThemeContext.Provider>
+);
 
 ReactDOM.render(<Parent />, document.getElementById('root'));
