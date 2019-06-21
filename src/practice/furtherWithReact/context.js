@@ -22,16 +22,12 @@ const Card = () => (
     </div>
 );
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className="App">
-                <Title>Un titre de page</Title>
-                <Button>Un bouton</Button>
-                <Card />
-            </div>
-        );
-    }
-}
+const App = () => (
+    <div className="App">
+        <Title>Un titre de page</Title>
+        <Button>Un bouton</Button>
+        <Card />
+    </div>
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));

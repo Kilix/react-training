@@ -6,17 +6,13 @@ import ReactDOM from 'react-dom';
  * - Submit le formulaire au clic sur le "span"
  */
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className="App">
-                <form>
-                    <input type="number" placeholder="Nombre" />
-                    <span style={{cursor: 'pointer', paddingLeft: '10px'}}>Submit</span>
-                </form>
-            </div>
-        );
-    }
-}
+const App = () => (
+    <div className="App">
+        <form>
+            <input type="number" placeholder="Nombre" />
+            <span style={{cursor: 'pointer', paddingLeft: '10px'}}>Submit</span>
+        </form>
+    </div>
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));

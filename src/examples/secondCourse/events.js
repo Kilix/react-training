@@ -1,16 +1,16 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-class ComponentWithEvent extends Component {
-    onClick = event => {};
+const ComponentWithEvent = () => {
+    const onClick = event => {
+        console.log(event);
+    };
 
-    render() {
-        return (
-            <button type="button" onClick={this.onClick}>
-                Click me!
-            </button>
-        );
-    }
-}
+    return (
+        <button type="button" onClick={onClick}>
+            Click me!
+        </button>
+    );
+};
 
 ReactDOM.render(<ComponentWithEvent />, document.getElementById('root'));

@@ -1,74 +1,58 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-const withWindowSize = WrappedComponent =>
-    class extends Component {
-        state = {large: window.innerWidth > 1025};
+const withWindowSize = WrappedComponent => props => {
+    const [large, setSize] = React.useState(window.innerWidth > 1025);
 
-        componentDidMount() {
-            console.log(WrappedComponent.name + ' did mount');
-            window.addEventListener('resize', this.update);
-        }
+    React.useEffect(() => {
+        console.log(WrappedComponent.name + ' did mount');
+        window.addEventListener('resize', update);
 
-        componentWillUnmount() {
-            window.removeEventListener('resize', this.update);
-        }
-
-        update = () => {
-            const {large} = this.state;
-            const largeActualWidth = window.innerWidth > 1025;
-
-            if (largeActualWidth !== large) this.setState({large: !large});
+        return () => {
+            window.removeEventListener('resize', update);
         };
+    }, []);
 
-        render() {
-            return <WrappedComponent large={this.state.large} {...this.props} />;
-        }
+    const update = () => {
+        setSize(window.innerWidth > 1025);
     };
 
-class List extends Component {
-    static propTypes = {
-        elements: PropTypes.array.isRequired,
-        large: PropTypes.bool.isRequired,
-    };
+    return <WrappedComponent large={large} {...props} />;
+};
 
-    render() {
-        const {elements, large} = this.props;
-        return (
-            <div>
-                {elements.map(element => (
-                    <div key={element} style={{textTransform: large ? 'uppercase' : 'capitalize'}}>
-                        {element}
-                    </div>
-                ))}
+const List = ({elements, large}) => (
+    <div>
+        {elements.map(element => (
+            <div key={element} style={{textTransform: large ? 'uppercase' : 'capitalize'}}>
+                {element}
             </div>
-        );
-    }
-}
-class Button extends Component {
-    static propTypes = {
-        large: PropTypes.bool.isRequired,
-    };
+        ))}
+    </div>
+);
 
-    render() {
-        const buttonLabel = this.props.large ? 'Add a fruit in the list' : 'Add';
-        return <button type="button">{buttonLabel}</button>;
-    }
-}
+List.propTypes = {
+    elements: PropTypes.array.isRequired,
+    large: PropTypes.bool.isRequired,
+};
+
+const Button = ({large}) => {
+    const buttonLabel = large ? 'Add a fruit in the list' : 'Add';
+    return <button type="button">{buttonLabel}</button>;
+};
+
+Button.propTypes = {
+    large: PropTypes.bool.isRequired,
+};
 
 const ListWithWindowSize = withWindowSize(List);
 const ButtonWithWindowSize = withWindowSize(Button);
 
-class Parent extends Component {
-    render() {
-        return (
-            <div>
-                <ListWithWindowSize elements={['orange', 'grapes']} />
-                <ButtonWithWindowSize />
-            </div>
-        );
-    }
-}
+const Parent = () => (
+    <div>
+        <ListWithWindowSize elements={['orange', 'grapes']} />
+        <ButtonWithWindowSize />
+    </div>
+);
 
 ReactDOM.render(<Parent />, document.getElementById('root'));

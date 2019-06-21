@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {getTopArtistsPromise} from '../../practice/main/libs/actionsHelpers';
+import {getTopArtistsPromise} from './libs/actionsHelpers';
 import {sortArtistsByPlayCount} from './helpers';
 import Card from './components/card';
 import ArtistRow from './artistRow';

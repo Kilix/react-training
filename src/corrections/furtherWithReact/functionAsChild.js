@@ -5,28 +5,21 @@ import ReactDOM from 'react-dom';
  * - on désire avoir une gestion générique des formulaires :
  *      créer un render prop qui gère le changement de state et le test des données au submit
  */
-class FormWrapper extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = props.initialData;
-    }
+const FormWrapper = ({children, initialData, submitForm, validateForm}) => {
+    const [data, setData] = React.useState(initialData);
 
-    onChange = event => {
+    const onChange = event => {
         const target = event.target;
-        this.setState(prevState => ({...prevState, [target.name]: target.value}));
+        setData(prevData => ({...prevData, [target.name]: target.value}));
     };
 
-    onSubmit = () => {
-        const {validateForm, submitForm} = this.props;
-        if (validateForm(this.state)) return;
-        submitForm(this.state);
+    const onSubmit = () => {
+        if (validateForm(data)) return;
+        submitForm(data);
     };
 
-    render() {
-        const {children} = this.props;
-        return children({data: this.state, onChange: this.onChange, onSubmit: this.onSubmit});
-    }
-}
+    return children({data, onChange, onSubmit});
+};
 
 const validateForm = ({age, firstname}) => (firstname && age > 0 ? false : true);
 const initialData = {age: '', firstname: ''};
