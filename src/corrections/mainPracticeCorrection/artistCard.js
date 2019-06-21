@@ -3,7 +3,7 @@ import React from 'react';
 
 import {getArtistInfoPromise} from '../../practice/main/libs/actionsHelpers';
 import Card from './components/card';
-import {ThemeProvider} from './components/theme';
+import ThemeContext from './components/theme';
 import DataFetcher from './components/dataFetcher';
 import {formatNumberToString, getSimilarArtistsNames} from './helpers';
 import Tag from './tag';
@@ -21,7 +21,7 @@ const ArtistCard = ({artistName}) => (
             const similarArtists = artist.similar && getSimilarArtistsNames(artist.similar);
 
             return (
-                <ThemeProvider value="pink">
+                <ThemeContext.Provider value="pink">
                     <Card header={artistName}>
                         <div className="artist-card">
                             <div className="artist-card__main">
@@ -52,7 +52,7 @@ const ArtistCard = ({artistName}) => (
                             <div>Similar Artists: {similarArtists}</div>
                         </div>
                     </Card>
-                </ThemeProvider>
+                </ThemeContext.Provider>
             );
         }}
     </DataFetcher>

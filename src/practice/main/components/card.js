@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Card = ({children, header, theme}) => (
+const Card = ({children, header}) => (
     <div className="card">
         <div className="card__header">{header}</div>
         {children}
