@@ -6,32 +6,29 @@ import ReactDOM from 'react-dom';
  * - Submit le formulaire au clic sur le "span"
  */
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.textInput = React.createRef();
-        this.form = React.createRef();
-    }
+const App = () => {
+    const textInput = React.useRef(null);
+    const form = React.useRef(null);
 
-    componentDidMount() {
-        this.textInput.current.focus();
-    }
+    const focusInput = () => {
+        textInput.current.focus();
+    };
 
-    render() {
-        return (
-            <div className="App">
-                <form ref={this.form}>
-                    <input type="number" placeholder="Nombre" ref={this.textInput} />
-                    <span
-                        style={{cursor: 'pointer', paddingLeft: '10px'}}
-                        onClick={() => this.form.current.submit()}
-                    >
-                        Submit
-                    </span>
-                </form>
-            </div>
-        );
-    }
-}
+    React.useEffect(focusInput, []);
+
+    return (
+        <div className="App">
+            <form ref={form}>
+                <input type="number" placeholder="Nombre" ref={textInput} />
+                <span
+                    style={{cursor: 'pointer', paddingLeft: '10px'}}
+                    onClick={() => form.current.submit()}
+                >
+                    Submit
+                </span>
+            </form>
+        </div>
+    );
+};
 
 ReactDOM.render(<App />, document.getElementById('root'));

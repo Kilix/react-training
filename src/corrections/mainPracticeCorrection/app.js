@@ -1,27 +1,20 @@
 import '../../practice/main/style.css';
 
-import React, {Component} from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 import ArtistsList from './artistsList';
 import ArtistCard from './artistCard';
 
-class App extends Component {
-    state = {openedCard: null};
+const App = () => {
+    const [openedCard, openCard] = React.useState(null);
 
-    openArtistCard = artistName => {
-        this.setState(() => ({openedCard: artistName}));
-    };
-
-    render() {
-        const {openedCard} = this.state;
-        return (
-            <div className="app">
-                {openedCard && <ArtistCard artistName={openedCard} />}
-                <ArtistsList openArtistCard={this.openArtistCard} />
-            </div>
-        );
-    }
-}
+    return (
+        <div className="app">
+            {openedCard && <ArtistCard artistName={openedCard} />}
+            <ArtistsList openArtistCard={openCard} />
+        </div>
+    );
+};
 
 ReactDOM.render(<App />, document.getElementById('root'));

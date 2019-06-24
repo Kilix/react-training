@@ -6,36 +6,21 @@ import ReactDOM from 'react-dom';
  *      créer un HOC qui gère le changement de state et le test des données au submit
  */
 
-const wrapForm = BaseComponent =>
-    class FormWrapper extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = props.initialData;
-        }
+const wrapForm = BaseComponent => ({initialData, submitForm, validateForm, ...otherProps}) => {
+    const [data, setData] = React.useState(initialData);
 
-        onChange = event => {
-            const target = event.target;
-            this.setState(prevState => ({...prevState, [target.name]: target.value}));
-        };
-
-        onSubmit = () => {
-            const {validateForm, submitForm} = this.props;
-            if (validateForm(this.state)) return;
-            submitForm(this.state);
-        };
-
-        render() {
-            const {initialData, validateForm, ...otherProps} = this.props;
-            return (
-                <BaseComponent
-                    onChange={this.onChange}
-                    data={this.state}
-                    onSubmit={this.onSubmit}
-                    {...otherProps}
-                />
-            );
-        }
+    const onChange = event => {
+        const target = event.target;
+        setData(prevData => ({...prevData, [target.name]: target.value}));
     };
+
+    const onSubmit = () => {
+        if (validateForm(data)) return;
+        submitForm(data);
+    };
+
+    return <BaseComponent onChange={onChange} data={data} onSubmit={onSubmit} {...otherProps} />;
+};
 
 const validateForm = ({age, firstname}) => (firstname && age > 0 ? false : true);
 const initialData = {age: '', firstname: ''};

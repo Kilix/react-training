@@ -8,18 +8,14 @@ import ReactDOM from 'react-dom';
 
 const ThemeContext = React.createContext({});
 
-const Title = ({children}) => (
-    <ThemeContext.Consumer>
-        {({color}) => <h2 style={{color}}>{children}</h2>}
-    </ThemeContext.Consumer>
-);
-const Button = ({children}) => (
-    <ThemeContext.Consumer>
-        {({color, borderRadius}) => (
-            <button style={{borderRadius, color, borderColor: color}}>{children}</button>
-        )}
-    </ThemeContext.Consumer>
-);
+const Title = ({children}) => {
+    const {color} = React.useContext(ThemeContext);
+    return <h2 style={{color}}>{children}</h2>;
+};
+const Button = ({children}) => {
+    const {color, borderRadius} = React.useContext(ThemeContext);
+    return <button style={{borderRadius, color, borderColor: color}}>{children}</button>;
+};
 
 const Card = () => {
     const theme = {color: 'purple', borderRadius: 0};
@@ -39,19 +35,17 @@ const Card = () => {
     );
 };
 
-class App extends React.Component {
-    render() {
-        const theme = {color: '#3683CE', borderRadius: '10px'};
-        return (
-            <div className="App">
-                <ThemeContext.Provider value={theme}>
-                    <Title>Un titre de page</Title>
-                    <Button>Un bouton</Button>
-                    <Card />
-                </ThemeContext.Provider>
-            </div>
-        );
-    }
-}
+const App = () => {
+    const theme = {color: '#3683CE', borderRadius: '10px'};
+    return (
+        <div className="App">
+            <ThemeContext.Provider value={theme}>
+                <Title>Un titre de page</Title>
+                <Button>Un bouton</Button>
+                <Card />
+            </ThemeContext.Provider>
+        </div>
+    );
+};
 
 ReactDOM.render(<App />, document.getElementById('root'));

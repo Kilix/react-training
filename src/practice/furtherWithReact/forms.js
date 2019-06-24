@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 /* TODO
@@ -7,15 +7,11 @@ import ReactDOM from 'react-dom';
  * - Ajouter une règle de validation : si le nombre saisi est > 10, afficher un message d'erreur
  */
 
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <input type="number" placeholder="Nombre < 10" />
-                <button>Submit</button>
-            </div>
-        );
-    }
-}
+const App = () => (
+    <div className="App">
+        <input type="number" placeholder="Nombre < 10" />
+        <button>Submit</button>
+    </div>
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));

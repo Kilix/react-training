@@ -1,40 +1,30 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
-const ThemeContext = React.createContext('');
+const ColorContext = React.createContext('');
 
-class Fruit extends React.Component {
-    static propTypes = {
-        name: PropTypes.string.isRequired,
-    };
+const Fruit = ({name}) => {
+    const color = React.useContext(ColorContext);
+    return <div style={{color}}>{name}</div>;
+};
 
-    render() {
-        const {name} = this.props;
-        return (
-            <ThemeContext.Consumer>
-                {color => <div style={{color}}>{name}</div>}
-            </ThemeContext.Consumer>
-        );
-    }
-}
+Fruit.propTypes = {
+    name: PropTypes.string.isRequired,
+};
 
-class List extends React.Component {
-    render() {
-        return (
-            <div>
-                {['apple', 'orange', 'peach'].map(fruit => (
-                    <Fruit key={fruit} name={fruit} />
-                ))}
-            </div>
-        );
-    }
-}
+const List = () => (
+    <div>
+        {['apple', 'orange', 'peach'].map(fruit => (
+            <Fruit key={fruit} name={fruit} />
+        ))}
+    </div>
+);
 
 const Parent = () => (
-    <ThemeContext.Provider value="green">
+    <ColorContext.Provider value="green">
         <List />
-    </ThemeContext.Provider>
+    </ColorContext.Provider>
 );
 
 ReactDOM.render(<Parent />, document.getElementById('root'));
