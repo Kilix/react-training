@@ -5,29 +5,15 @@ const Element = ({clicked}) => {
     console.log('Element renders');
     return <div>{clicked ? 'Clicked!' : 'Not clicked!'}</div>;
 };
-
-class App extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            clicked: false,
-        };
-    }
-
-    handleClick() {
-        this.setState({clicked: true});
-    }
-
-    render() {
-        console.log('App renders');
-        return (
-            <button onClick={() => this.handleClick()}>
-                <Element clicked={this.state.clicked} />
-            </button>
-        );
-    }
-}
+const App = () => {
+    const [clicked, setClicked] = React.useState(false);
+    console.log('App renders');
+    return (
+        <button onClick={() => setClicked(true)}>
+            <Element clicked={clicked} />
+        </button>
+    );
+};
 // What about unmount?
 const Parent = () => {
     console.log('parent renders');

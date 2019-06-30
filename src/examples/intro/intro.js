@@ -25,5 +25,5 @@ renderPage();
 // with JSX
 // pass actors as props to <App />
 // add button to addHugues, that modifies actors and rerenderPage
-// Use class for App and use setState instead of triggering a full rerender
+// add useState hook instead of triggering a full rerender
 // Add a simple component ~ reusable template
