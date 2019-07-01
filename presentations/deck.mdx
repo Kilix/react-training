@@ -86,6 +86,32 @@ But how do we make things pretty?
 ## React API
 
 ---
+## React Classes
+An older way of writing components, without hooks
+```jsx
+import * as React from 'react';
+
+class Form extends React.Component {
+  state = {
+    isValid: false,
+    data: [],
+  };
+  componentDidMount() {
+    this.setState(() => {
+      isValid: validateForm(this.props.data);
+    })
+  }
+  render() {
+    return (
+      <form>
+        {/* ... */}
+      </form>
+    )
+  }
+}
+```
+
+---
 ## Reconciliation
 Do React rerenders everything all the time?
 
@@ -104,19 +130,22 @@ In React, the common way to use form elements is to control them.
 ---
 ## Controlled component
 ```jsx
-    class Name extends React.Component {
-        state = {value: ''};
-        handleChange = (event) => {
-          this.setState({value: event.target.value});
-        }
-        render() {
-          return <input
-                    type="text"
-                    value={this.state.value}
-                    onChange={this.handleChange}
-                />;
-        }
-    }
+const Name = () => {
+  const [value, setValue] = React.useState('');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  return (
+    <input
+        type="text"
+        value={value}
+        onChange={handleChange}
+    />
+  );
+
+}
 ```
 
 ---
@@ -140,13 +169,17 @@ A way to pass data from an upper to a lower one, without having to do it through
 ---
 ## Context
 ```jsx
-  const {Provider, Consumer} = React.createContext(defaultValue);
+  const Context = React.createContext(defaultValue);
 
-  <Provider value={/* some value */}>{...}</Provider>
+  const Parent = () => {
+    return <Context.Provider value={/* some value */}>{...}</Context.Provider>;
+  };
 
-  <Consumer>
-    {value => /* render something based on the context value */}
-  </Consumer>
+  const Comp = () => {
+    const value = React.useContext(Context);
+    return <div>{value}</div>;
+  };
+
 ```
 
 ---

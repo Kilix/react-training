@@ -1,4 +1,0 @@
-- Optional, but you can first increment/decrement without using redux, if you'll feel more comfortable
-- You want to update the store when clicking, by dispatching actions
-- Update the view when the store is updated -> this can be done directly in the eventListeners, by  writing manually in the dom
-- Use subscribe to update the DOM automatically whenever the store is updated.

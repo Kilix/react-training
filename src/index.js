@@ -15,7 +15,7 @@ import './examples/intro/intro';
 // import './examples/firstCourse/propTypesDefaultProps';
 // import './examples/firstCourse/children';
 // import './examples/firstCourse/state';
-// import './examples/firstCourse/lifeCycle';
+// import './examples/firstCourse/effects';
 
 // import './examples/firstCourse/reconciliation';
 

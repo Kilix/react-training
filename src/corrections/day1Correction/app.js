@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import keywords from './helpers/keywords';
@@ -9,40 +9,30 @@ import hasContactKeywords from './helpers/hasContactKeywords';
 
 import contacts from '../../practice/day1/mockData';
 
-class App extends Component {
-    static propTypes = {
-        contacts: PropTypes.array.isRequired,
+const App = ({contacts}) => {
+    const [selectedKeyword, setSelectedKeyword] = React.useState(null);
+
+    const filteredContacts = contacts.filter(contact =>
+        hasContactKeywords(contact, selectedKeyword)
+    );
+    const selectKeyword = keyword => {
+        setSelectedKeyword(selectedKeyword === keyword ? null : keyword);
     };
 
-    state = {
-        selectedKeyword: null,
-    };
-
-    selectKeyword = keyword => {
-        this.setState((prevState, props) => ({
-            selectedKeyword: prevState.selectedKeyword === keyword ? null : keyword,
-        }));
-    };
-
-    render() {
-        const {contacts} = this.props;
-
-        const filteredContacts = contacts.filter(contact =>
-            hasContactKeywords(contact, this.state.selectedKeyword)
-        );
-
-        return (
-            <div>
-                <h1>My contacts</h1>
-                <Filters
-                    keywords={keywords}
-                    selectedKeyword={this.state.selectedKeyword}
-                    selectKeyword={this.selectKeyword}
-                />
-                <ContactList list={filteredContacts} />
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <h1>My contacts</h1>
+            <Filters
+                keywords={keywords}
+                selectedKeyword={selectedKeyword}
+                selectKeyword={selectKeyword}
+            />
+            <ContactList list={filteredContacts} />
+        </div>
+    );
+};
+App.propTypes = {
+    contacts: PropTypes.array.isRequired,
+};
 
 ReactDOM.render(<App contacts={contacts} />, document.getElementById('root'));

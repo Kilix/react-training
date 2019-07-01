@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import React from 'react';
 
 import './contact.css';
 
@@ -20,39 +20,31 @@ const contactPropTypes = {
     }).isRequired,
 };
 
-class Contact extends Component {
-    state = {
-        twitterBio: null,
-    };
+const Contact = ({contact}) => {
+    const [twitterBio, setTwitterBio] = React.useState(null);
+    React.useEffect(
+        () => {
+            if (contact.twitterHandle)
+                fetchTwitterBio(contact.id).then(({bio}) => {
+                    setTwitterBio(bio);
+                });
+        },
+        [contact]
+    );
 
-    componentDidMount() {
-        const {contact} = this.props;
-
-        if (contact.twitterHandle)
-            fetchTwitterBio(contact.id).then(({bio}) => {
-                this.setState({twitterBio: bio});
-            });
-    }
-
-    render() {
-        const {contact} = this.props;
-
-        return (
-            <div className="contact">
-                <div className="contact__header">
-                    <div className="contact__name">{getContactDisplayName(contact)}</div>
-                    {contact.twitterHandle && <TwitterHandle handle={contact.twitterHandle} />}
-                </div>
-                <InlineList elements={contact.keywords}>
-                    {(element, index) => <Keyword keyword={element} key={index} />}
-                </InlineList>
-                {this.state.twitterBio && (
-                    <div className="contact__bio">{this.state.twitterBio}</div>
-                )}
+    return (
+        <div className="contact">
+            <div className="contact__header">
+                <div className="contact__name">{getContactDisplayName(contact)}</div>
+                {contact.twitterHandle && <TwitterHandle handle={contact.twitterHandle} />}
             </div>
-        );
-    }
-}
+            <InlineList elements={contact.keywords}>
+                {(element, index) => <Keyword keyword={element} key={index} />}
+            </InlineList>
+            {twitterBio && <div className="contact__bio">{twitterBio}</div>}
+        </div>
+    );
+};
 Contact.propTypes = contactPropTypes;
 
 export default Contact;

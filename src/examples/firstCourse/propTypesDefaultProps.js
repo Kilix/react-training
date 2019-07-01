@@ -1,24 +1,17 @@
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-class ComponentWithPropTypes extends Component {
-    // This functions only at runtime
-    static propTypes = {
-        name: PropTypes.string.isRequired,
-    };
-    render() {
-        return <div>It has a name {this.props.name}</div>;
-    }
-}
-class ComponentWithDefaultName extends Component {
-    static defaultProps = {
-        name: 'but it is a default one',
-    };
-    render() {
-        return <div>It has a name {this.props.name}</div>;
-    }
-}
+const ComponentWithDefaultName = ({name = 'but it is a default one'}) => {
+    return <div>It has a name {name}</div>;
+};
+const ComponentWithPropTypes = ({name}) => {
+    return <div>It has a name {name}</div>;
+};
+// This functions only at runtime
+ComponentWithPropTypes.propTypes = {
+    name: PropTypes.string.isRequired,
+};
 
 const App = () => (
     <div>

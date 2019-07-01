@@ -2,15 +2,37 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 
 const DataFetcher = ({children, getData, parameters}) => {
-    const [isLoading, setIsLoading] = React.useState(true);
-    const [data, setData] = React.useState(null);
+    const [state, dispatch] = React.useReducer(
+        (state, action) => {
+            switch (action.type) {
+                case 'FETCH_DATA':
+                    return {
+                        isLoading: true,
+                        data: null,
+                    };
+                case 'SUCCESS':
+                    return {
+                        isLoading: false,
+                        data: action.payload,
+                    };
+                default:
+                    throw new Error('The reducer of DataFetch was called with the wrong action');
+            }
+        },
+        {
+            isLoading: true,
+            data: null,
+        }
+    );
 
     const fetchData = parameters => {
         if (parameters === null) return;
-        setIsLoading(true);
+        dispatch({type: 'FETCH_DATA'});
         getData(parameters).then(results => {
-            setData(results);
-            setIsLoading(false);
+            dispatch({
+                type: 'SUCCESS',
+                payload: results,
+            });
         });
     };
 
@@ -21,7 +43,7 @@ const DataFetcher = ({children, getData, parameters}) => {
         [parameters]
     );
 
-    return children({data, isLoading});
+    return children({data: state.data, isLoading: state.isLoading});
 };
 
 DataFetcher.propTypes = {
