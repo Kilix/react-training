@@ -7,13 +7,14 @@ import Card from './components/card';
 import ThemeContext from './components/theme';
 import ArtistRow from './artistRow';
 import SearchArtist from './searchArtist';
-import DataFetcher from './components/dataFetcher';
+import useDataFetcher from './hooks.js';
 
 const ArtistsList = ({openArtistCard}) => {
     const [favorites, setFavorites] = React.useState([]);
     const [onlyFavorites, setOnlyFavorites] = React.useState(false);
     const [search, setSearch] = React.useState('');
     const [sorted, sort] = React.useState(false);
+    const {isLoading, data: artistsList} = useDataFetcher(getTopArtistsPromise);
 
     const sortByPlayCount = () => {
         sort(prevSort => !prevSort);
@@ -29,65 +30,59 @@ const ArtistsList = ({openArtistCard}) => {
         );
     };
 
+    const artists = getArtistsList(
+        artistsList || [],
+        sorted,
+        search,
+        onlyFavorites ? favorites : null
+    );
+
+    const header = (
+        <div>
+            Top Artists
+            <div style={{display: 'flex'}}>
+                <SearchArtist search={search} searchArtist={setSearch} />
+                <button style={{marginLeft: '5px'}} onClick={filterFavorites}>
+                    {onlyFavorites ? 'Display all' : 'Display only favorites'}
+                </button>
+                <button style={{marginLeft: '5px'}} onClick={sortByPlayCount}>
+                    {sorted ? 'Remove sorting' : 'Sort by play count'}
+                </button>
+            </div>
+        </div>
+    );
+
     return (
-        <DataFetcher getData={getTopArtistsPromise}>
-            {({isLoading, data: artistsList}) => {
-                const artists = getArtistsList(
-                    artistsList || [],
-                    sorted,
-                    search,
-                    onlyFavorites ? favorites : null
-                );
-
-                const header = (
-                    <div>
-                        Top Artists
-                        <div style={{display: 'flex'}}>
-                            <SearchArtist search={search} searchArtist={setSearch} />
-                            <button style={{marginLeft: '5px'}} onClick={filterFavorites}>
-                                {onlyFavorites ? 'Display all' : 'Display only favorites'}
-                            </button>
-                            <button style={{marginLeft: '5px'}} onClick={sortByPlayCount}>
-                                {sorted ? 'Remove sorting' : 'Sort by play count'}
-                            </button>
-                        </div>
-                    </div>
-                );
-
-                return (
-                    <ThemeContext.Provider value="green">
-                        <Card header={header}>
-                            {isLoading ? (
-                                <div className="loading">Loading</div>
-                            ) : (
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th />
-                                            <th>Name</th>
-                                            <th>Play count</th>
-                                            <th>Link</th>
-                                            <th>Favorites ({favorites.length})</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {artists.map(artist => (
-                                            <ArtistRow
-                                                key={artist.name}
-                                                artist={artist}
-                                                changeFavorite={changeFavorite}
-                                                openArtistCard={openArtistCard}
-                                                favorite={favorites.includes(artist.name)}
-                                            />
-                                        ))}
-                                    </tbody>
-                                </table>
-                            )}
-                        </Card>
-                    </ThemeContext.Provider>
-                );
-            }}
-        </DataFetcher>
+        <ThemeContext.Provider value="green">
+            <Card header={header}>
+                {isLoading ? (
+                    <div className="loading">Loading</div>
+                ) : (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th />
+                                <th>Name</th>
+                                <th>Play count</th>
+                                <th>Link</th>
+                                <th>Favorites ({favorites.length})</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {artists.map(artist => (
+                                <ArtistRow
+                                    key={artist.name}
+                                    artist={artist}
+                                    changeFavorite={changeFavorite}
+                                    openArtistCard={openArtistCard}
+                                    favorite={favorites.includes(artist.name)}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                )}
+            </Card>
+        </ThemeContext.Provider>
     );
 };
 

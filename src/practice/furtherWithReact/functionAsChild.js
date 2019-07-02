@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 /* TODO
  * - on désire avoir une gestion générique des formulaires :
  *      créer un render prop qui gère le changement de state et le test des données au submit
- * - Vous pouvez repartir du HOC créé au TP précédent
  */
 
 const validateForm = ({age, firstname}) => (firstname && age > 0 ? false : true);

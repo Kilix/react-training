@@ -1,7 +1,6 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
-const DataFetcher = ({children, getData, parameters}) => {
+const useDataFetcher = (getData, parameters) => {
     const [state, dispatch] = React.useReducer(
         (state, action) => {
             switch (action.type) {
@@ -43,13 +42,7 @@ const DataFetcher = ({children, getData, parameters}) => {
         [parameters]
     );
 
-    return children({data: state.data, isLoading: state.isLoading});
+    return {data: state.data, isLoading: state.isLoading};
 };
 
-DataFetcher.propTypes = {
-    children: PropTypes.func.isRequired,
-    getData: PropTypes.func.isRequired,
-    parameters: PropTypes.any,
-};
-
-export default DataFetcher;
+export default useDataFetcher;

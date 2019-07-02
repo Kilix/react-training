@@ -25,7 +25,6 @@ import './examples/intro/intro';
 /* Further with React */
 // import './examples/secondCourse/events';
 // import './examples/secondCourse/refs';
-// import './examples/secondCourse/hoc';
 // import './examples/secondCourse/functionAsChild';
 // import './examples/secondCourse/context';
 
@@ -33,7 +32,6 @@ import './examples/intro/intro';
 // import './practice/furtherWithReact/events';
 // import './practice/furtherWithReact/forms';
 // import './practice/furtherWithReact/refs';
-// import './practice/furtherWithReact/hoc';
 // import './practice/furtherWithReact/functionAsChild';
 // import './practice/furtherWithReact/context';
 
