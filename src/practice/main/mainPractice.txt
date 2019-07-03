@@ -10,8 +10,7 @@ Et développer de nouvelles fonctionnalités :
     (sa bio, les artistes similaires, les tags, lien vers lastFM...).
 
 2. FetchComponent
-    On veut gérer les calls API de façon générique : créer un "FetchComponent" qui les gère.
-    Il a une function as child.
+    On veut gérer les calls API de façon générique : créer un custom hook qui les gère.
 
 3. Theme
     Avoir un thème dans le contexte, différent sur la liste et la carte d'un artiste qui change la couleur des liens
